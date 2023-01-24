@@ -1,47 +1,38 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
-// !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: 'Next.js + Tailwind CSS + TypeScript Starter',
-  siteName: 'Next.js + Tailwind CSS + TypeScript Starter',
+  title:
+    'Full-Stack React & Next.js Developer | Affordable Rates & Reliable Services',
+  siteName:
+    'Azaz Ahamed Zoha | Full-Stack React & Next.js Developer | Affordable Rates & Reliable Services',
   description:
-    'A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky',
+    'Looking for a full-stack developer with experience in React & Next.js? I, Azaz Ahamed Zoha, am a professional developer with 3+ years of experience, offering affordable rates and reliable services. Contact me today to discuss your project!',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: 'https://tsnext-tw.thcl.dev',
+  url: 'https://azazahamed.com',
   type: 'website',
   robots: 'follow, index',
   /**
    * No need to be filled, will be populated with openGraph function
    * If you wish to use a normal image, just specify the path below
    */
-  image: 'https://tsnext-tw.thcl.dev/images/large-og.png',
-};
+  image: 'https://azazahamed.com/images/logo_meta.jpg',
+}
 
 type SeoProps = {
-  date?: string;
-  templateTitle?: string;
-} & Partial<typeof defaultMeta>;
+  date?: string
+  templateTitle?: string
+} & Partial<typeof defaultMeta>
 
 export default function Seo(props: SeoProps) {
-  const router = useRouter();
+  const router = useRouter()
   const meta = {
     ...defaultMeta,
     ...props,
-  };
+  }
   meta['title'] = props.templateTitle
     ? `${props.templateTitle} | ${meta.siteName}`
-    : meta.title;
-
-  // Use siteName if there is templateTitle
-  // but show full title if there is none
-  // !STARTERCONF Follow config for opengraph, by deploying one on https://github.com/theodorusclarence/og
-  // ? Uncomment code below if you want to use default open graph
-  // meta['image'] = openGraph({
-  //   description: meta.description,
-  //   siteName: props.templateTitle ? meta.siteName : meta.title,
-  //   templateTitle: props.templateTitle,
-  // });
+    : meta.title
 
   return (
     <Head>
@@ -58,8 +49,7 @@ export default function Seo(props: SeoProps) {
       <meta name='image' property='og:image' content={meta.image} />
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
-      {/* // !STARTERCONF Remove or change to your handle */}
-      {/* <meta name='twitter:site' content='@th_clarence' /> */}
+      <meta name='twitter:site' content='@azaz_zoha' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
       <meta name='twitter:image' content={meta.image} />
@@ -71,11 +61,11 @@ export default function Seo(props: SeoProps) {
             property='og:publish_date'
             content={meta.date}
           />
-          {/* // !STARTERCONF Remove or change to your name */}
+
           <meta
             name='author'
             property='article:author'
-            content='Theodorus Clarence'
+            content='Azaz Ahamed Zoha'
           />
         </>
       )}
@@ -88,11 +78,9 @@ export default function Seo(props: SeoProps) {
       <meta name='msapplication-config' content='/favicon/browserconfig.xml' />
       <meta name='theme-color' content='#ffffff' />
     </Head>
-  );
+  )
 }
 
-// !STARTERCONF this is the default favicon, you can generate your own from https://realfavicongenerator.net/
-// ! then replace the whole /public/favicon folder and favicon.ico
 const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
   {
     rel: 'apple-touch-icon',
@@ -118,4 +106,4 @@ const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
     color: '#00e887',
   },
   { rel: 'shortcut icon', href: '/favicon/favicon.ico' },
-];
+]
