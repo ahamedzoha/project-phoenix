@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   eslint: {
-    dirs: ['src'],
+    dirs: ['__tests__', 'app', 'components', 'pages', 'utils'],
   },
 
   reactStrictMode: true,

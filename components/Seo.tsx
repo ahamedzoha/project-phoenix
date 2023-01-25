@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next'
-import Head from 'next/head'
 
 const defaultMeta = {
   title:
@@ -35,7 +34,7 @@ const Seo: React.FC<SeoProps> = (props) => {
     : meta.title
 
   return (
-    <Head>
+    <>
       <title>{meta.title}</title>
       <meta name='robots' content={meta.robots} />
       <meta content={meta.description} name='description' />
@@ -77,8 +76,11 @@ const Seo: React.FC<SeoProps> = (props) => {
       <meta name='msapplication-TileColor' content='#ffffff' />
       <meta name='msapplication-config' content='/favicon/browserconfig.xml' />
       <meta name='theme-color' content='#ffffff' />
-    </Head>
+    </>
   )
+}
+Seo.defaultProps = {
+  pathname: '/',
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
