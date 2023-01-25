@@ -1,5 +1,5 @@
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 const defaultMeta = {
   title:
@@ -20,12 +20,12 @@ const defaultMeta = {
 }
 
 type SeoProps = {
+  pathname?: string
   date?: string
   templateTitle?: string
 } & Partial<typeof defaultMeta>
 
-export default function Seo(props: SeoProps) {
-  const router = useRouter()
+const Seo: React.FC<SeoProps> = (props) => {
   const meta = {
     ...defaultMeta,
     ...props,
@@ -39,8 +39,8 @@ export default function Seo(props: SeoProps) {
       <title>{meta.title}</title>
       <meta name='robots' content={meta.robots} />
       <meta content={meta.description} name='description' />
-      <meta property='og:url' content={`${meta.url}${router.asPath}`} />
-      <link rel='canonical' href={`${meta.url}${router.asPath}`} />
+      <meta property='og:url' content={`${meta.url}${props.pathname}`} />
+      <link rel='canonical' href={`${meta.url}${props.pathname}`} />
       {/* Open Graph */}
       <meta property='og:type' content={meta.type} />
       <meta property='og:site_name' content={meta.siteName} />
@@ -81,6 +81,15 @@ export default function Seo(props: SeoProps) {
   )
 }
 
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const pathname = context.req.url
+  return {
+    props: {
+      pathname,
+    },
+  }
+}
+
 const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
   {
     rel: 'apple-touch-icon',
@@ -107,3 +116,5 @@ const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
   },
   { rel: 'shortcut icon', href: '/favicon/favicon.ico' },
 ]
+
+export default Seo
