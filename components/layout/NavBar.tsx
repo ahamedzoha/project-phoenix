@@ -27,8 +27,8 @@ const Navbar: React.FC = () => {
           Azaz Ahamed Zoha
         </Link>
       </div>
-      {/* Menu */}
-      {/* <div className={`${isOpen ? 'block' : 'hidden'}`}> */}
+
+      {/* Desktop/Laptop Menu with links */}
       <div className={`inline-block`}>
         <div className='hidden md:flex'>
           {links.map(({ href, label, active }) => (
@@ -50,25 +50,67 @@ const Navbar: React.FC = () => {
           setIsOpen={setIsOpen}
         />
       </div>
+
+      {/* Slide-out Menu */}
       <div
+        id='slideout-menu-container'
         className={`${
-          isOpen ? 'block' : 'hidden'
-        } blue-glassmorphism  absolute top-0 right-0 z-10 block h-screen w-72`}
+          !isOpen && 'invisible'
+        } fixed inset-0 h-full w-full bg-[#3d3e417c]`}
       >
-        <div className='text-sm lg:flex-grow'>
-          {links.map(({ href, label, active }) => (
-            <Link
-              onClick={() => setIsOpen(false)}
-              key={href}
-              href={href}
-              className={clsxm(
-                active ? 'text-zinc-400' : 'text-zinc-100',
-                `mt-4 mr-4 block  hover:text-zinc-300 lg:mt-0 lg:inline-block`
-              )}
+        <div
+          id='slideout-menu-bg'
+          onClick={() => setIsOpen(false)}
+          className={clsxm(
+            isOpen ? `opacity-50` : `opacity-0`,
+            `absolute inset-0 h-full w-full bg-gray-900 transition-all duration-500 ease-out`
+          )}
+        ></div>
+        <div
+          id='slideout-menu'
+          className={clsxm(
+            !isOpen && `translate-x-full`,
+            `glassmorphism absolute right-0 top-0 h-screen w-72 space-y-2 transition-all duration-300  ease-out`
+          )}
+        >
+          {/* Mobile Links */}
+          <div className='mt-4 ml-4'>
+            {links.map(({ href, label, active }) => (
+              <Link
+                onClick={() => setIsOpen(false)}
+                key={href}
+                href={href}
+                className={clsxm(
+                  active ? 'text-zinc-100' : 'text-neutral-50',
+                  `my-0 block px-2 py-1 text-2xl font-bold hover:text-zinc-300 lg:mt-0 lg:inline-block`
+                )}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Close Button */}
+          <div
+            onClick={() => setIsOpen(false)}
+            className='absolute top-0 right-0 mt-5 mr-5 flex h-8 w-8 cursor-pointer items-center justify-center text-white'
+          >
+            <svg
+              className='h-6 w-6'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+              xmlns='http://www.w3.org/2000/svg'
             >
-              {label}
-            </Link>
-          ))}
+              <path
+                fillRule='evenodd'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M6 18L18 6M6 6l12 12'
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </nav>
