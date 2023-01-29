@@ -2,6 +2,9 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    fontLoaders: [
+      { loader: '@next/font/google', options: { subsets: ['latin'] } },
+    ],
   },
   eslint: {
     dirs: ['__tests__', 'app', 'components', 'pages', 'utils'],

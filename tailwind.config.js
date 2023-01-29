@@ -12,6 +12,9 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
+        serif: ['var(--font-playfair)', ...fontFamily.serif],
+        sans: ['var(--font-inter)', ...fontFamily.sans],
+        mono: ['var(--font-roboto-mono)', ...fontFamily.mono],
       },
       colors: {
         primary: {
