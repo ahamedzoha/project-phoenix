@@ -6,7 +6,7 @@ const HomePage = () => {
     height: '80vh',
     width: '100%',
     maxHeight: '900px',
-    objectFit: 'cover',
+    // objectFit: 'cover',
   }
 
   return (
