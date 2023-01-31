@@ -63,14 +63,14 @@ const Navbar: React.FC = () => {
           onClick={() => setIsOpen(false)}
           className={clsxm(
             isOpen ? `opacity-50` : `opacity-0`,
-            `absolute inset-0 h-full w-full bg-gray-900 transition-all duration-500 ease-out`
+            `absolute inset-0 z-30 h-full w-full bg-gray-900 transition-all duration-500 ease-out`
           )}
         ></div>
         <div
           id='slideout-menu'
           className={clsxm(
             !isOpen && `translate-x-full`,
-            `glassmorphism absolute right-0 top-0 h-screen w-72 space-y-2 transition-all duration-300  ease-out`
+            `glassmorphism absolute right-0 top-0 z-30 h-screen w-72 space-y-2 transition-all duration-300  ease-out`
           )}
         >
           {/* Mobile Links */}
@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
           {/* Close Button */}
           <div
             onClick={() => setIsOpen(false)}
-            className='absolute top-0 right-0 mt-5 mr-5 flex h-8 w-8 cursor-pointer items-center justify-center text-white'
+            className='absolute top-0 right-0 z-30 mt-5 mr-5 flex h-8 w-8 cursor-pointer items-center justify-center text-white'
           >
             <svg
               className='h-6 w-6'
