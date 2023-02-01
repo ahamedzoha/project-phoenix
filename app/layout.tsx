@@ -30,13 +30,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       lang='en'
       className={`${inter.variable} ${playfair.variable} ${roboto_mono.variable}`}
     >
-      <link
-        rel='preload'
-        href='/fonts/inter-var-latin.woff2'
-        as='font'
-        type='font/woff2'
-        crossOrigin='anonymous'
-      />
       <Seo templateTitle='Home' />
       <body className='min-h-screen bg-[#F4F5F9]'>
         <Navbar />

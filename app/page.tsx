@@ -35,24 +35,24 @@ const HomePage = () => {
   ]
 
   return (
-    <div id='hero_container' className=' bg-[#F4F5F9]'>
-      <div className='flex h-full w-full flex-col items-center justify-center py-24 sm:flex-row md:py-4  2xl:py-8 '>
+    <section id='hero_container' className='bg-[#f4f5f9]] '>
+      <div className='flex w-full flex-col items-start justify-center py-12 sm:flex-row sm:py-24 md:py-4  2xl:py-8 '>
         {/* text column */}
-        <div className='flex h-full w-full flex-col items-start justify-center space-y-6 px-6 xl:px-36  xl:py-4 2xl:w-2/3'>
-          <h1 className='font-serif text-3xl font-bold text-[#30333A] md:text-5xl'>
+        <div className='mt-0 flex w-full flex-col items-start justify-center space-y-6 px-6  md:mt-16 lg:mt-16 xl:px-36  xl:py-4 2xl:w-2/3'>
+          <h1 className='max-w-lg font-serif text-3xl font-bold text-[#30333A] md:text-5xl'>
             Full-stack Software Engineer
           </h1>
           <p className=' mt-5 text-lg text-[#80948D] md:text-2xl'>
             With 3+ Years of Experience
           </p>
-          <p className='mt-5 text-lg text-[#A2A6A5] md:text-base'>
+          <p className='mt-5 max-w-md text-lg text-[#A2A6A5] md:text-base'>
             Are you looking for a skilled full-stack developer with expertise in
             React or Next? Look no further! I can help you build secure and
             reliable applications at an affordable rate. Let's work together to
             create something amazing.
           </p>
           {/* buttons */}
-          <div className='mt-4 flex flex-row space-x-4 py-12'>
+          <div className='flex w-full flex-col justify-start space-y-2 pt-6 sm:flex-row sm:space-y-0 sm:space-x-4 sm:pt-4'>
             <button className='rounded-md bg-[#30333A] px-4 py-2 text-lg font-semibold text-[#F4F5F9] hover:bg-[#515E5A]'>
               Hire Me
             </button>
@@ -62,9 +62,10 @@ const HomePage = () => {
           </div>
 
           {/* tech svgs */}
-          <div className='mt-5 -ml-5 flex flex-row  pt-20'>
+          <div className=' flex flex-row overflow-x-hidden pt-7 sm:-ml-5  sm:pt-4'>
             {heroTechStackImages.map((image, index) => (
               <Image
+                className='scale-95 sm:scale-100'
                 key={index}
                 src={image.src}
                 alt={image.alt}
@@ -75,17 +76,18 @@ const HomePage = () => {
           </div>
         </div>
         {/* image column */}
-        <div className='relative h-[500px] w-full sm:h-[800px] xl:h-[900px]'>
+        <div className='relative h-[300px] w-full  sm:h-[800px] xl:h-[900px]'>
           <Image
             className='z-1'
-            src='/images/Hero-square.png'
+            src='/images/Hero-square-min.png'
             alt='Hero Image'
             fill={true}
             style={imageStyle}
+            sizes='(max-width: 700px) 50vw, (max-width: 1200px) 50vw, 100vw'
           />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
