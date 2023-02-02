@@ -79,9 +79,6 @@ const Seo: React.FC<SeoProps> = (props) => {
     </>
   )
 }
-Seo.defaultProps = {
-  pathname: '/',
-}
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const pathname = context.req.url

@@ -1,6 +1,8 @@
+'use client'
 import React from 'react'
 import { Inter, Playfair_Display, Roboto_Mono } from '@next/font/google'
 import '@/styles/globals.css'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 import Seo from '@/components/Seo'
 import Navbar from '@/components/layout/NavBar'
@@ -31,10 +33,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       className={`${inter.variable} ${playfair.variable} ${roboto_mono.variable}`}
     >
       <Seo templateTitle='Home' />
-      <body className='min-h-screen bg-[#F4F5F9]'>
-        <Navbar />
-        <>{children}</>
-      </body>
+      <ParallaxProvider>
+        <body className='min-h-screen bg-[#F4F5F9]'>
+          <Navbar />
+          {children}
+        </body>
+      </ParallaxProvider>
     </html>
   )
 }
