@@ -1,8 +1,21 @@
-import { FC } from 'react'
+'use client'
+import Image from 'next/image'
+import { useRef } from 'react'
+import { CSSProperties, FC } from 'react'
+import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax'
 
 const About: FC = () => {
+  const imageStyle: CSSProperties = {
+    position: 'absolute',
+    bottom: 0,
+    objectPosition: 'bottom right',
+    width: '100%',
+  }
+
+  const parallaxRef = useRef<HTMLDivElement>(null)
+
   return (
-    <section className='section-gradient flex h-[800px] w-full items-center justify-center'>
+    <section className='section-gradient relative flex h-[800px] w-full flex-col items-center justify-center'>
       {/* 2 column of single row */}
       <div className='flex h-full max-w-6xl items-center justify-around space-x-4 px-4'>
         {/* 2 rows of a single column */}
@@ -26,6 +39,31 @@ const About: FC = () => {
           </p>
         </div>
       </div>
+      {/* nextjs 13 beta parallax image 3 layers  */}
+
+      <Image
+        alt='Back Mountain'
+        src='/images/Back-mountain.svg'
+        style={{ zIndex: 1, ...imageStyle }}
+        width={1000}
+        height={400}
+      />
+
+      <Image
+        alt='Middle Mountain'
+        src='/images/Middle-mountain.svg'
+        style={{ zIndex: 2, ...imageStyle }}
+        width={1000}
+        height={400}
+      />
+
+      <Image
+        alt='Front Mountain'
+        src='/images/Front-mountain.svg'
+        style={{ zIndex: 3, ...imageStyle }}
+        width={1000}
+        height={400}
+      />
     </section>
   )
 }
