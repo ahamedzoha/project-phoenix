@@ -18,7 +18,7 @@ const About: FC = () => {
     <ParallaxBanner>
       <section className='section-gradient relative flex h-[600px] w-full flex-col items-center justify-center sm:h-[800px]'>
         {/* 2 column of single row */}
-        <div className='flex h-full max-w-6xl items-center justify-around space-x-4 px-4'>
+        <div className='flex h-full max-w-6xl flex-col justify-center space-y-10 px-12 pt-14 md:flex-row md:items-center md:justify-around md:space-x-4 md:pt-0'>
           {/* 2 rows of a single column */}
           <div className='flex min-w-fit flex-col items-start justify-around'>
             <h5 className='font-serif text-lg font-normal text-white '>
@@ -30,7 +30,7 @@ const About: FC = () => {
           </div>
 
           {/* 1 text column */}
-          <div className='flex flex-col sm:pl-6'>
+          <div className='flex max-w-2xl flex-col pl-0 md:pl-6'>
             <p className='text-lg font-normal text-white '>
               As a full-stack developer focused on React and NextJS, I have the
               skills and experience to help you with all your web development
@@ -40,24 +40,41 @@ const About: FC = () => {
               life.
             </p>
           </div>
+          <ParallaxBannerLayer speed={10}>
+            <Image
+              className='opacity-10'
+              alt='Back Mountain'
+              src='/images/ellipses.svg'
+              style={{
+                zIndex: 1,
+                position: 'absolute',
+                bottom: -300,
+                objectPosition: 'top right',
+                width: '100%',
+              }}
+              width={1000}
+              height={400}
+            />
+          </ParallaxBannerLayer>
         </div>
+
         {/* nextjs 13 beta parallax image 3 layers  */}
 
-        <ParallaxBannerLayer speed={-6}>
+        <ParallaxBannerLayer speed={-12}>
           <Image
             alt='Back Mountain'
             src='/images/Back-mountain.svg'
-            style={{ zIndex: 1, ...imageStyle }}
+            style={{ zIndex: 2, ...imageStyle }}
             width={1000}
             height={400}
           />
         </ParallaxBannerLayer>
 
-        <ParallaxBannerLayer speed={-2}>
+        <ParallaxBannerLayer speed={-6}>
           <Image
             alt='Middle Mountain'
             src='/images/Middle-mountain.svg'
-            style={{ zIndex: 2, ...imageStyle }}
+            style={{ zIndex: 3, ...imageStyle }}
             width={1000}
             height={400}
           />
@@ -67,7 +84,7 @@ const About: FC = () => {
           <Image
             alt='Front Mountain'
             src='/images/Front-mountain.svg'
-            style={{ zIndex: 3, ...imageStyle }}
+            style={{ zIndex: 4, ...imageStyle }}
             width={1000}
             height={400}
           />

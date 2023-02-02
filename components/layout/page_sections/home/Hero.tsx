@@ -6,6 +6,11 @@ const HeroSection: FC = () => {
     objectPosition: 'top right',
     objectFit: 'contain',
   }
+  const imageStyle2: CSSProperties = {
+    objectPosition: 'bottom left',
+    objectFit: 'scale-down',
+    // width: '50',
+  }
 
   const heroTechStackImages: ImageProps[] = [
     {
@@ -34,7 +39,7 @@ const HeroSection: FC = () => {
     },
   ]
   return (
-    <section id='hero_container' className='bg-[#f4f5f9]] '>
+    <section id='hero_container' className='bg-[#f4f5f9]] relative'>
       <div className='flex w-full flex-col items-start justify-center py-12 sm:flex-row sm:py-24 md:py-4  2xl:py-8 '>
         {/* text column */}
         <div className='mt-0 flex w-full flex-col items-start justify-center space-y-6 px-6  md:mt-16 lg:mt-16 xl:px-36  xl:py-4 2xl:w-2/3'>
@@ -86,6 +91,15 @@ const HeroSection: FC = () => {
           />
         </div>
       </div>
+      <Image
+        className=' hidden xl:block '
+        src='/images/potted-plant.svg'
+        alt='Grow'
+        fill={true}
+        style={imageStyle2}
+        // width={200}
+        // height={100}
+      />
     </section>
   )
 }
