@@ -49,7 +49,7 @@ const HeroSection: FC = () => {
           <p className=' mt-5 text-lg text-[#80948D] md:text-2xl'>
             With 3+ Years of Experience
           </p>
-          <p className='mt-5 max-w-md text-lg text-[#A2A6A5] md:text-base'>
+          <p className='mt-5 max-w-md text-lg text-[#30333A] md:text-base'>
             Are you looking for a skilled full-stack developer with expertise in
             React or Next? Look no further! I can help you build secure and
             reliable applications at an affordable rate. Let's work together to

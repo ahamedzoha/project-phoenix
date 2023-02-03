@@ -1,8 +1,10 @@
 'use client'
 import Image from 'next/image'
-import { useRef } from 'react'
 import { CSSProperties, FC } from 'react'
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax'
+import CountUp from 'react-countup'
+import VisibilitySensor from 'react-visibility-sensor'
+import StatRow from '@/components/StatRow'
 
 const About: FC = () => {
   const imageStyle: CSSProperties = {
@@ -12,13 +14,33 @@ const About: FC = () => {
     width: '100%',
   }
 
-  const parallaxRef = useRef<HTMLDivElement>(null)
+  const stats: {
+    number: number
+    text: string
+  }[] = [
+    {
+      number: 31,
+      text: 'Projects Delivered',
+    },
+    {
+      number: 4,
+      text: 'Years of Experience',
+    },
+    {
+      number: 19,
+      text: 'Happy Clients/Orgs Served',
+    },
+    {
+      number: 96,
+      text: 'Percent of Clients Satisfied',
+    },
+  ]
 
   return (
     <ParallaxBanner>
-      <section className='section-gradient relative flex h-[600px] w-full flex-col items-center justify-center sm:h-[800px]'>
+      <section className='section-gradient relative flex  w-full flex-col items-center justify-center sm:h-[800px] 2xl:h-screen'>
         {/* 2 column of single row */}
-        <div className='flex h-full max-w-6xl flex-col justify-center space-y-10 px-12 pt-14 md:flex-row md:items-center md:justify-around md:space-x-4 md:pt-0'>
+        <div className='flex max-w-6xl flex-col justify-center space-y-10 px-12 pt-14 md:flex-row md:items-center md:justify-around md:space-x-4 md:pt-0'>
           {/* 2 rows of a single column */}
           <div className='flex min-w-fit flex-col items-start justify-around'>
             <h5 className='font-serif text-lg font-normal text-white '>
@@ -57,6 +79,9 @@ const About: FC = () => {
             />
           </ParallaxBannerLayer>
         </div>
+
+        {/* row of counters */}
+        <StatRow stats={stats} />
 
         {/* nextjs 13 beta parallax image 3 layers  */}
 
