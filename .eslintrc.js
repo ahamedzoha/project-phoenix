@@ -83,5 +83,6 @@ module.exports = {
   globals: {
     React: true,
     JSX: true,
+    TSX: true,
   },
 }

@@ -32,7 +32,7 @@ const About: FC = () => {
     },
     {
       number: 96,
-      text: 'Percent of Clients Satisfied',
+      text: '% of Clients Satisfied',
     },
   ]
 

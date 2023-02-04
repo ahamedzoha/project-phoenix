@@ -11,6 +11,11 @@ const HeroSection: FC = () => {
     objectFit: 'scale-down',
     // width: '50',
   }
+  const imageStyle3: CSSProperties = {
+    objectPosition: 'bottom right',
+    objectFit: 'scale-down',
+    // width: '50',
+  }
 
   const heroTechStackImages: ImageProps[] = [
     {
@@ -97,6 +102,15 @@ const HeroSection: FC = () => {
         alt='Grow'
         fill={true}
         style={imageStyle2}
+        // width={200}
+        // height={100}
+      />
+      <Image
+        className=' hidden xl:block '
+        src='/images/plant2.svg'
+        alt='Grow Your Business'
+        fill={true}
+        style={imageStyle3}
         // width={200}
         // height={100}
       />
