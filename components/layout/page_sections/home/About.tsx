@@ -2,8 +2,6 @@
 import Image from 'next/image'
 import { CSSProperties, FC } from 'react'
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax'
-import CountUp from 'react-countup'
-import VisibilitySensor from 'react-visibility-sensor'
 import StatRow from '@/components/StatRow'
 
 const About: FC = () => {

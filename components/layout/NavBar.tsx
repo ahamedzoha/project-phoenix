@@ -55,22 +55,22 @@ const Navbar: React.FC = () => {
       <div
         id='slideout-menu-container'
         className={`${
-          !isOpen && 'invisible'
-        } fixed inset-0 h-full w-full bg-[#3d3e417c]`}
+          !isOpen && 'hidden'
+        } fixed inset-0 z-50 h-full w-full bg-[#3d3e417c]`}
       >
         <div
           id='slideout-menu-bg'
           onClick={() => setIsOpen(false)}
           className={clsxm(
             isOpen ? `opacity-50` : `opacity-0`,
-            `absolute inset-0 z-30 h-full w-full bg-gray-900 transition-all duration-500 ease-out`
+            `absolute inset-0 h-full w-full bg-gray-900 transition-all duration-500 ease-out`
           )}
         ></div>
         <div
           id='slideout-menu'
           className={clsxm(
             !isOpen && `translate-x-full`,
-            `glassmorphism absolute right-0 top-0 z-30 h-screen w-72 space-y-2 transition-all duration-300  ease-out`
+            `glassmorphism absolute right-0 top-0 h-screen w-72 space-y-2 transition-all duration-300  ease-out`
           )}
         >
           {/* Mobile Links */}

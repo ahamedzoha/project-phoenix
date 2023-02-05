@@ -27,29 +27,39 @@ const Portfolio = () => {
       live_link: 'https://example.com/social-media-platform',
       tags: ['React', 'Node.js', 'MongoDB'],
     },
-    // {
-    //   title: 'Fitness Tracker',
-    //   description:
-    //     'A fitness tracker app that helps users set and reach their fitness goals, built with React Native and the HealthKit framework.',
-    //   image: '/images/project-4.jpg',
-    //   live_link: 'https://example.com/fitness-tracker',
-    //   tags: ['React Native', 'HealthKit'],
-    // },
+    {
+      title: 'Fitness Tracker',
+      description:
+        'A fitness tracker app that helps users set and reach their fitness goals, built with React Native and the HealthKit framework.',
+      image: '/images/project-4.jpg',
+      live_link: 'https://example.com/fitness-tracker',
+      tags: ['React Native', 'HealthKit'],
+    },
   ]
 
   return (
-    <section className='section-gradient-2 flex h-screen justify-center'>
-      <div className='container flex flex-col justify-center space-y-8 py-12 px-6 lg:flex-row lg:space-y-0 lg:py-0 xl:px-36 '>
-        <div className='flex min-w-[290px]  flex-col items-start justify-center'>
-          <h5 className='font-serif text-lg font-normal text-white '>
+    <section className='section-gradient-2 flex justify-center sm:h-screen '>
+      <div
+        className='container flex flex-col justify-center space-y-8  px-12 py-14
+        lg:flex-row lg:space-y-0 lg:py-0 
+      xl:px-36
+      5xl:max-w-[1920px]
+       '
+      >
+        <div
+          className='flex min-w-[290px]  flex-col items-start justify-center
+        
+        '
+        >
+          <h5 className='font-serif text-lg font-normal text-white 5xl:text-xl'>
             Some of
           </h5>
-          <h2 className='font-serif text-5xl font-bold text-white '>
+          <h2 className='font-serif text-5xl font-bold text-white 5xl:text-6xl'>
             My Previous Works
           </h2>
         </div>
 
-        <div className='flex flex-col items-start justify-center lg:ml-6'>
+        <div className='flex w-full flex-col items-start justify-center lg:ml-6'>
           <ProjectCarousel projects={projects} />
         </div>
       </div>
