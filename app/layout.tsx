@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Inter, Playfair_Display, Roboto_Mono } from '@next/font/google'
+import { Inter, Playfair_Display, Roboto_Mono } from "next/font/google"
 import '@/styles/globals.css'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
