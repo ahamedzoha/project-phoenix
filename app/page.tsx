@@ -1,11 +1,15 @@
 import { Container } from '@/components/layout/Container'
-import Link from 'next/link'
 import {
   TwitterIcon,
   InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
-} from '@/components/layout/SocialIcons'
+} from '@/components/Social/SocialIcons'
+
+import SocialLink from '@/components/Social/SocialLink'
+import ImageRow from '@/components/ImageRow'
+import Newsletter from '@/components/home/Newsletter'
+import Resume from '@/components/home/Resume'
 
 const HomePage = () => {
   return (
@@ -45,20 +49,17 @@ const HomePage = () => {
           </div>
         </div>
       </Container>
+      <ImageRow />
+      <Container className='mt-24 md:mt-28'>
+        <div className='mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2'>
+          <div className='flex flex-col gap-16'></div>
+          <div className='space-y-10 lg:pl-16 xl:pl-24'>
+            <Newsletter />
+            <Resume />
+          </div>
+        </div>
+      </Container>
     </>
-  )
-}
-
-type SocialLinkProps = {
-  href: string
-  icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactElement
-} & React.HTMLAttributes<HTMLAnchorElement>
-
-function SocialLink({ href, icon: Icon, ...props }: SocialLinkProps) {
-  return (
-    <Link href={href} className='group -m-1 p-1' {...props}>
-      <Icon className='h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300' />
-    </Link>
   )
 }
 

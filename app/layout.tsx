@@ -1,11 +1,10 @@
 import React from 'react'
 import { Inter, Playfair_Display, Roboto_Mono } from 'next/font/google'
 import '@/styles/globals.css'
-import { ParallaxProvider } from 'react-scroll-parallax'
 
 import Seo from '@/components/Seo'
-import Navbar from '@/components/layout/NavBar'
 import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 
 const inter = Inter({
   weight: ['500', '600', '700', '800', '900'],
@@ -42,6 +41,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className='relative'>
           <Header />
           <main>{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
