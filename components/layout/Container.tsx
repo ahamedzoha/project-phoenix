@@ -1,5 +1,5 @@
-import { forwardRef } from 'react'
 import clsx from 'clsx'
+import { forwardRef } from 'react'
 
 export const OuterContainer = forwardRef<
   HTMLDivElement,
@@ -45,14 +45,14 @@ export const Container: React.FC<ContainerProps> & {
   )
 }
 
-interface DefaultOuterProps extends React.HTMLAttributes<HTMLDivElement> {}
+type DefaultOuterProps = React.HTMLAttributes<HTMLDivElement>
 const DefaultOuter: React.FC<DefaultOuterProps> = ({ children, ...props }) => (
   <div className='mx-auto max-w-7xl lg:px-8' {...props}>
     {children}
   </div>
 )
 
-interface DefaultInnerProps extends React.HTMLAttributes<HTMLDivElement> {}
+type DefaultInnerProps = React.HTMLAttributes<HTMLDivElement>
 const DefaultInner: React.FC<DefaultInnerProps> = ({ children, ...props }) => (
   <div className={clsx('mx-auto max-w-2xl lg:max-w-5xl', props.className)}>
     {children}

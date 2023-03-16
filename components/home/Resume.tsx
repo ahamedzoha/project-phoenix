@@ -1,5 +1,7 @@
+import Image, { StaticImageData } from 'next/image'
+
 import Button from '@/components/buttons/NewButton'
-import Image from 'next/image'
+
 import logoAirbnb from '~/logos/airbnb.svg'
 import logoFacebook from '~/logos/facebook.svg'
 import logoPlanetaria from '~/logos/planetaria.svg'
@@ -8,19 +10,10 @@ import logoStarbucks from '~/logos/starbucks.svg'
 interface Role {
   company: string
   title: string
-  logo: React.ReactSVGElement
-  start:
-    | {
-        label?: string
-        dateTime: string
-      }
-    | string
-  end:
-    | {
-        label?: string
-        dateTime: string
-      }
-    | string
+  logo: StaticImageData
+  start: number
+  end: number
+  present?: boolean
 }
 export default function Resume() {
   const resume: Role[] = [
@@ -28,32 +21,30 @@ export default function Resume() {
       company: 'Planetaria',
       title: 'CEO',
       logo: logoPlanetaria,
-      start: '2019',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      start: 2019,
+      end: new Date().getFullYear(),
+      present: true,
     },
     {
       company: 'Airbnb',
       title: 'Product Designer',
       logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      start: 2014,
+      end: 2019,
     },
     {
       company: 'Facebook',
       title: 'iOS Software Engineer',
       logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      start: 2011,
+      end: 2014,
     },
     {
       company: 'Starbucks',
       title: 'Shift Supervisor',
       logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      start: 2008,
+      end: 2011,
     },
   ]
 
@@ -81,16 +72,12 @@ export default function Resume() {
               <dt className='sr-only'>Date</dt>
               <dd
                 className='ml-auto text-xs text-zinc-400 dark:text-zinc-500'
-                aria-label={`${role.start ?? role.start} until ${
-                  role.end.label ?? role.end
-                }`}
+                aria-label={`${role.start} until ${role.end}`}
               >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
+                <time dateTime={role.start.toString()}>{role.start}</time>{' '}
                 <span aria-hidden='true'>—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
+                <time dateTime={role.end.toString()}>
+                  {role.present ? 'Present' : role.end}
                 </time>
               </dd>
             </dl>

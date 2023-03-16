@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import clsxm from '@/lib/clsxm'
 
 const variantStyles = {
@@ -9,16 +10,21 @@ const variantStyles = {
 }
 
 interface ButtonProps {
+  children: React.ReactNode
   variant?: keyof typeof variantStyles
   className?: string
   href?: string
-  [key: string]: any
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type']
+  // [key: string]: string | number | boolean | undefined
 }
 
 export default function Button({
   variant = 'primary',
   className,
   href,
+  children,
+  type = 'button',
+
   ...props
 }: ButtonProps) {
   className = clsxm(
@@ -28,8 +34,12 @@ export default function Button({
   )
 
   return href ? (
-    <Link href={href} className={className} {...props} />
+    <Link href={href} className={className} {...props}>
+      {children}
+    </Link>
   ) : (
-    <button className={className} {...props} />
+    <button className={className} type={type} {...props}>
+      {children}
+    </button>
   )
 }

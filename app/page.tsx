@@ -1,15 +1,14 @@
-import { Container } from '@/components/layout/Container'
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-} from '@/components/Social/SocialIcons'
-
-import SocialLink from '@/components/Social/SocialLink'
-import ImageRow from '@/components/ImageRow'
 import Newsletter from '@/components/home/Newsletter'
 import Resume from '@/components/home/Resume'
+import ImageRow from '@/components/ImageRow'
+import { Container } from '@/components/layout/Container'
+import {
+  GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+} from '@/components/Social/SocialIcons'
+import SocialLink from '@/components/Social/SocialLink'
 
 const HomePage = () => {
   return (

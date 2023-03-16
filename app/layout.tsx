@@ -1,10 +1,11 @@
-import React from 'react'
 import { Inter, Playfair_Display, Roboto_Mono } from 'next/font/google'
+import React from 'react'
+
 import '@/styles/globals.css'
 
-import Seo from '@/components/Seo'
-import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { Header } from '@/components/layout/Header'
+import Seo from '@/components/Seo'
 
 const inter = Inter({
   weight: ['500', '600', '700', '800', '900'],

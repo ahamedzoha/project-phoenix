@@ -5,16 +5,16 @@ module.exports = {
     node: true,
   },
   plugins: ['@typescript-eslint', 'simple-import-sort', 'unused-imports'],
-  files: ['./'],
+
   extends: [
     'eslint:recommended',
     'next',
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    './node_modules/eslint-config-airbnb-base/index.js',
+    // './node_modules/eslint-config-airbnb-base/index.js',
   ],
-  exclude: ['node_modules', '.next', 'out'],
+  // exclude: ['node_modules', '.next', 'out'],
   rules: {
     'no-unused-vars': 'off',
     'no-console': 'warn',
