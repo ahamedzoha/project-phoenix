@@ -11,6 +11,7 @@ const inter = Inter({
   weight: ['500', '600', '700', '800', '900'],
   variable: '--font-inter',
   display: 'optional',
+  subsets: ['latin'],
 })
 
 const playfair = Playfair_Display({
@@ -18,11 +19,13 @@ const playfair = Playfair_Display({
   style: ['italic', 'normal'],
   variable: '--font-playfair',
   display: 'optional',
+  subsets: ['latin'],
 })
 
 const roboto_mono = Roboto_Mono({
   variable: '--font-roboto-mono',
   display: 'optional',
+  subsets: ['latin', 'latin'],
 })
 
 export default function Layout({ children }: { children: React.ReactNode }) {
