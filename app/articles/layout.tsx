@@ -1,6 +1,10 @@
 import SimpleLayout from '@/components/layout/SimpleLayout'
 
-export default function ArticlePageLayout({ children }) {
+export default function ArticlePageLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <SimpleLayout
       title='Writing on software design, company building, and the aerospace industry.'
@@ -13,6 +17,7 @@ export default function ArticlePageLayout({ children }) {
               <Article key={article.slug} article={article} />
           ))} 
           */}
+          {children}
         </div>
       </div>
     </SimpleLayout>
