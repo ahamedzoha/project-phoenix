@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display, Roboto_Mono } from 'next/font/google'
+import { Inter, Roboto_Mono } from 'next/font/google'
 import React from 'react'
 
 import '@/styles/globals.css'
@@ -14,14 +14,6 @@ const inter = Inter({
   subsets: ['latin'],
 })
 
-const playfair = Playfair_Display({
-  weight: ['400', '500', '600', '700', '800', '900'],
-  style: ['italic', 'normal'],
-  variable: '--font-playfair',
-  display: 'optional',
-  subsets: ['latin'],
-})
-
 const roboto_mono = Roboto_Mono({
   variable: '--font-roboto-mono',
   display: 'optional',
@@ -33,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang='en'
-      className={`${inter.variable} ${playfair.variable} ${roboto_mono.variable} h-full antialiased`}
+      className={`${inter.variable} ${roboto_mono.variable} h-full antialiased`}
     >
       <Seo templateTitle='Home' />
       <body className='flex h-full flex-col bg-zinc-50 dark:bg-black'>
