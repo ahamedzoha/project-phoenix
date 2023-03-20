@@ -100,6 +100,7 @@ interface CardEyebrowProps {
   decorate?: boolean
   children: React.ReactNode
   className?: string
+  dateTime?: string
 }
 Card.Eyebrow = function CardEyebrow({
   as: Component = 'p',

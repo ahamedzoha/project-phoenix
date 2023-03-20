@@ -1,10 +1,12 @@
+import rehypePrism from '@mapbox/rehype-prism'
 import nextMDX from '@next/mdx'
+import remarkGfm from 'remark-gfm'
 
 const withMDx = nextMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypePrism],
   },
 })
 

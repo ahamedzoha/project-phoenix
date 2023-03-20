@@ -1,3 +1,6 @@
+// import { getAllArticles } from '@/lib/getAllArticles'
+
+// import Article from '@/components/home/Article'
 import Newsletter from '@/components/home/Newsletter'
 import Resume from '@/components/home/Resume'
 import ImageRow from '@/components/ImageRow'
@@ -10,7 +13,11 @@ import {
 } from '@/components/Social/SocialIcons'
 import SocialLink from '@/components/Social/SocialLink'
 
-const HomePage = () => {
+const HomePage = async () => {
+  // const articles = (await getAllArticles())
+  //   .slice(0, 4)
+  //   .map(({ component, ...meta }) => meta)
+
   return (
     <>
       <Container className='mt-9'>
@@ -51,7 +58,11 @@ const HomePage = () => {
       <ImageRow />
       <Container className='mt-24 md:mt-28'>
         <div className='mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2'>
-          <div className='flex flex-col gap-16'></div>
+          <div className='flex flex-col gap-16'>
+            {/* {articles.map((article) => (
+              <Article key={article.slug} article={article} />
+            ))} */}
+          </div>
           <div className='space-y-10 lg:pl-16 xl:pl-24'>
             <Newsletter />
             <Resume />
