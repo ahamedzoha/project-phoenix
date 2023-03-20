@@ -1,10 +1,10 @@
-// import { getAllPostsMeta } from '@/lib/mdx'
+import { getAllPostsMeta } from '@/lib/mdx'
 
-import { Container } from '@/components/layout/Container'
+import Article from '@/components/articles/Article'
 import SimpleLayout from '@/components/layout/SimpleLayout'
 
 const ArticlesPage = async () => {
-  // const allArticleMetas = await getAllPostsMeta()
+  const allArticleMetas = await getAllPostsMeta()
 
   return (
     <SimpleLayout
@@ -13,9 +13,9 @@ const ArticlesPage = async () => {
     >
       <div className='md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40'>
         <div className='flex max-w-3xl flex-col space-y-16'>
-          <Container className='mt-9'>
-            <div className='max-w-2xl'></div>
-          </Container>
+          {allArticleMetas.map((article) => (
+            <Article key={article.slug} article={article} />
+          ))}
         </div>
       </div>
     </SimpleLayout>
