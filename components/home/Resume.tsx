@@ -2,10 +2,14 @@ import Image, { StaticImageData } from 'next/image'
 
 import Button from '@/components/buttons/NewButton'
 
-import logoAirbnb from '~/logos/airbnb.svg'
-import logoFacebook from '~/logos/facebook.svg'
-import logoPlanetaria from '~/logos/planetaria.svg'
-import logoStarbucks from '~/logos/starbucks.svg'
+import cisLogo from '~/logos/cisLogo.svg'
+import imLogo from '~/logos/imLogo.svg'
+import iubLogo from '~/logos/iubLogo.svg'
+// import logoAirbnb from '~/logos/airbnb.svg'
+// import logoFacebook from '~/logos/facebook.svg'
+// import logoPlanetaria from '~/logos/planetaria.svg'
+// import logoStarbucks from '~/logos/starbucks.svg'
+import upworkLogo from '~/logos/upworkLogo.svg'
 
 interface Role {
   company: string
@@ -18,33 +22,34 @@ interface Role {
 export default function Resume() {
   const resume: Role[] = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: 2019,
-      end: new Date().getFullYear(),
+      company: 'Intelligent Machines',
+      title: 'Software Engineer',
+      logo: imLogo,
+      start: 2020,
+      end: 2023,
+      // end: new Date().getFullYear(),
       present: true,
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
+      company: 'Upwork',
+      title: 'Frontend Engineer',
+      logo: upworkLogo,
+      start: 2018,
+      end: 2020,
+    },
+    {
+      company: 'Independent University, Bangladesh',
+      title: 'Research Assistant',
+      logo: iubLogo,
+      start: 2016,
+      end: 2018,
+    },
+    {
+      company: 'Canadian International School, Bangladesh',
+      title: 'IT Administrator',
+      logo: cisLogo,
       start: 2014,
-      end: 2019,
-    },
-    {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: 2011,
-      end: 2014,
-    },
-    {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: 2008,
-      end: 2011,
+      end: 2016,
     },
   ]
 
