@@ -17,7 +17,7 @@ const nextConfig = {
     mdxRs: true,
   },
   eslint: {
-    dirs: ['__tests__', 'app', 'components', 'pages', 'utils', 'content'],
+    dirs: ['app', 'components', 'pages', 'utils', 'content'],
   },
 
   reactStrictMode: true,
