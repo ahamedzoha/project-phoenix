@@ -5,7 +5,7 @@ import '@/styles/globals.css'
 
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
-// import Seo from '@/components/Seo'
+import Seo from '@/components/Seo'
 
 const inter = Inter({
   weight: ['500', '600', '700', '800', '900'],
@@ -19,34 +19,6 @@ const roboto_mono = Roboto_Mono({
   display: 'optional',
   subsets: ['latin', 'latin'],
 })
-// const modeScript = `
-//   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-//   updateMode()
-//   darkModeMediaQuery.addEventListener('change', updateModeWithoutTransitions)
-//   window.addEventListener('storage', updateModeWithoutTransitions)
-//   function updateMode() {
-//     let isSystemDarkMode = darkModeMediaQuery.matches
-//     let isDarkMode = window.localStorage.isDarkMode === 'true' || (!('isDarkMode' in window.localStorage) && isSystemDarkMode)
-//     if (isDarkMode) {
-//       document.documentElement.classList.add('dark')
-//     } else {
-//       document.documentElement.classList.remove('dark')
-//     }
-//     if (isDarkMode === isSystemDarkMode) {
-//       delete window.localStorage.isDarkMode
-//     }
-//   }
-//   function disableTransitionsTemporarily() {
-//     document.documentElement.classList.add('[&_*]:!transition-none')
-//     window.setTimeout(() => {
-//       document.documentElement.classList.remove('[&_*]:!transition-none')
-//     }, 0)
-//   }
-//   function updateModeWithoutTransitions() {
-//     disableTransitionsTemporarily()
-//     updateMode()
-//   }
-// `
 
 // export const metadata = {
 
@@ -60,7 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* <head>
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
       </head> */}
-      {/* <Seo templateTitle='Home' /> */}
+      <Seo templateTitle='Home' />
       <body className='flex h-full flex-col bg-zinc-50 dark:bg-black'>
         <div className='fixed inset-0 flex justify-center sm:px-8'>
           <div className='flex w-full max-w-7xl lg:px-8'>

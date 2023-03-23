@@ -7,12 +7,11 @@ import clsxm from '@/lib/clsxm'
 import { Container } from '@/components/layout/Container'
 import {
   GitHubIcon,
-  InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/Social/SocialIcons'
 
-import portraitImage from '~/images/portrait.jpg'
+import portraitImage from '~/images/about-neon.jpg'
 
 const AboutPage = () => {
   return (
@@ -24,64 +23,84 @@ const AboutPage = () => {
               src={portraitImage}
               alt=''
               sizes='(min-width: 1024px) 32rem, 20rem'
-              className='aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800'
+              className='aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover shadow-2xl dark:bg-zinc-800 dark:shadow-indigo-900'
             />
           </div>
         </div>
         <div className='lg:order-first lg:row-span-2'>
-          <h1 className='text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl'>
-            I’m Spencer Sharp. I live in New York City, where I design the
-            future.
+          <h1 className='text-4xl font-bold tracking-tight text-zinc-800  dark:text-zinc-100 sm:text-5xl'>
+            I’m Zoha. I live in Dhaka, where I develop the{' '}
+            <span
+              className='dark:drop-shadow-teal-700 text-teal-500 
+            dark:text-teal-400 dark:drop-shadow-2xl'
+            >
+              {' '}
+              future.
+            </span>
           </h1>
           <div className='mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400'>
             <p>
-              I’ve loved making things for as long as I can remember, and wrote
-              my first program when I was 6 years old, just two weeks after my
-              mom brought home the brand new Macintosh LC 550 that I taught
-              myself to type on.
+              📖 Working in the industry for over 3 years, I have gained a
+              wealth of experience as a software developer. I have primarily
+              focused on front-end development using React and NextJS, and have
+              completed projects requiring REST API frameworks such as
+              NodeJS/Express with databases using PostgreSQL, MongoDB, and
+              Firebase. I have also learned various secure deployment
+              strategies, including Continuous Integration and Deployment
+              pipelines, which can be automated using GitHub Actions or Gitlabs
+              CI.
             </p>
             <p>
-              The only thing I loved more than computers as a kid was space.
-              When I was 8, I climbed the 40-foot oak tree at the back of our
-              yard while wearing my older sister’s motorcycle helmet, counted
-              down from three, and jumped — hoping the tree was tall enough that
-              with just a bit of momentum I’d be able to get to orbit.
+              ⚡ In addition to my software engineering expertise, I am
+              currently studying system design and various software
+              architectures used by leading companies like Netflix, Airbnb,
+              Instagram, and Uber. I also have a strong passion for IoT
+              projects, particularly in the agricultural sector, as I believe
+              they have the potential to bring harmony and efficiency to the
+              world.
             </p>
+
             <p>
-              I spent the next few summers indoors working on a rocket design,
-              while I recovered from the multiple surgeries it took to fix my
-              badly broken legs. It took nine iterations, but when I was 15 I
-              sent my dad’s Blackberry into orbit and was able to transmit a
-              photo back down to our family computer from space.
-            </p>
-            <p>
-              Today, I’m the founder of Planetaria, where we’re working on
-              civilian space suits and manned shuttle kits you can assemble at
-              home so that the next generation of kids really <em>can</em> make
-              it to orbit — from the comfort of their own backyards.
+              🏗️ I am currently working on an exciting project that involves
+              managing Dhaka Stock Exchange portfolios. This project utilizes
+              cutting-edge technologies like Typescript, Google Cloud Functions,
+              Pub/Sub, Scheduler Firestore, and NextJS to deliver a robust and
+              efficient platform. As part of this project, I am recording and
+              storing near real-time stock data, which can be leveraged in the
+              future for AI-based trading bots. This is an excellent opportunity
+              for me to explore my passion for both software development and
+              finance. I'm excited to use my skills and knowledge to build a
+              platform that can help individuals make smarter investment
+              decisions. Stay tuned for updates on this exciting project!
             </p>
           </div>
         </div>
         <div className='lg:pl-20'>
           <ul role='list'>
-            <SocialLink href='#' icon={TwitterIcon}>
+            <SocialLink href='https://twitter.com/azaz_zoha' icon={TwitterIcon}>
               Follow on Twitter
             </SocialLink>
-            <SocialLink href='#' icon={InstagramIcon} className='mt-4'>
-              Follow on Instagram
-            </SocialLink>
-            <SocialLink href='#' icon={GitHubIcon} className='mt-4'>
+
+            <SocialLink
+              href='https://github.com/ahamedzoha'
+              icon={GitHubIcon}
+              className='mt-4'
+            >
               Follow on GitHub
             </SocialLink>
-            <SocialLink href='#' icon={LinkedInIcon} className='mt-4'>
+            <SocialLink
+              href='https://www.linkedin.com/in/azazahamed'
+              icon={LinkedInIcon}
+              className='mt-4'
+            >
               Follow on LinkedIn
             </SocialLink>
             <SocialLink
-              href='mailto:spencer@planetaria.tech'
+              href='mailto:ahamed.zoha@gmail.com'
               icon={MailIcon}
               className='mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40'
             >
-              spencer@planetaria.tech
+              ahamed.zoha@gmail.com
             </SocialLink>
           </ul>
         </div>

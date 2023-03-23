@@ -15,6 +15,9 @@ interface ButtonProps {
   className?: string
   href?: string
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type']
+  alt?: string
+  target?: string
+  rel?: string
   // [key: string]: string | number | boolean | undefined
 }
 
@@ -24,6 +27,9 @@ export default function Button({
   href,
   children,
   type = 'button',
+  target,
+  rel,
+  alt,
 
   ...props
 }: ButtonProps) {
@@ -34,7 +40,14 @@ export default function Button({
   )
 
   return href ? (
-    <Link href={href} className={className} {...props}>
+    <Link
+      href={href}
+      target={target}
+      about={alt}
+      rel={rel}
+      className={className}
+      {...props}
+    >
       {children}
     </Link>
   ) : (

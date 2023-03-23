@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About Me',
+  title: 'About | Azaz Ahamed Zoha',
   description: 'About Azaz Ahamed Zoha',
   abstract: 'About Azaz Ahamed Zoha',
   appleWebApp: {
