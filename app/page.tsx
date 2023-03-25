@@ -15,7 +15,18 @@ import {
 import SocialLink from '@/components/Social/SocialLink'
 
 const HomePage = async () => {
-  const articles = (await getAllPostsMeta()).slice(0, 3)
+  // Get the latest 3 articles
+  const articles = (await getAllPostsMeta())
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1
+      }
+      if (a.date > b.date) {
+        return -1
+      }
+      return 0
+    })
+    .slice(0, 3)
 
   return (
     <>
