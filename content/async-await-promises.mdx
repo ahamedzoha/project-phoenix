@@ -1,0 +1,67 @@
+---
+title: 'Async-Await and Promises in Node JS'
+author: 'Azaz Ahamed'
+date: '2023-03-26'
+description: 'Async Await and Promises in Node JS - A short guide to async await and promises in Node JS'
+---
+
+**Promises / Async-Await**
+
+Promises and async/await are two mechanisms in JavaScript that allow developers to handle asynchronous operations in a more readable and maintainable way.
+
+**Promises**
+
+Promises are a built-in JavaScript object that represent an asynchronous operation that may or may not have completed yet. A promise can be in one of three states: pending, fulfilled, or rejected. Promises are used to handle values that may not be available yet, such as the result of an asynchronous operation.
+
+Here is an example of how to use a promise in a Node.js application:
+
+```
+const fs = require('fs').promises
+
+fs.readFile('file.txt')
+  .then(data => console.log(data))
+  .catch(err => console.error(err))
+
+```
+
+In this example, the `fs.readFile()` function returns a promise that represents an asynchronous operation. The `then()` method is used to handle the fulfilled state of the promise, which means that the operation completed successfully. The `catch()` method is used to handle the rejected state of the promise, which means that an error occurred during the operation.
+
+**Async/Await**
+
+Async/await is a more recent addition to JavaScript that allows developers to write asynchronous code in a synchronous style. Async/await builds on top of promises and provides a cleaner and more readable syntax for handling asynchronous operations.
+
+Here is an example of how to use async/await in a Node.js application:
+
+```
+const fs = require('fs').promises
+
+async function readFile() {
+  try {
+    const data = await fs.readFile('file.txt')
+    console.log(data)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+readFile()
+
+```
+
+In this example, the `async` keyword is used to define a function that contains asynchronous operations. The `await` keyword is used to pause the execution of the function until the asynchronous operation completes. The `try...catch` statement is used to handle errors that may occur during the asynchronous operation.
+
+**Which one should you use?**
+
+Promises and async/await both provide a way to handle asynchronous operations in JavaScript. The choice between the two depends on personal preference and coding style.
+
+In general, promises are a good choice if you need to handle multiple asynchronous operations in parallel or if you need more fine-grained control over the flow of the asynchronous code. Async/await, on the other hand, is a good choice if you are writing code that needs to be more readable and maintainable, or if you are working with a codebase that already uses async/await extensively.
+
+When using either promises or async/await, it is important to follow best practices and standards to ensure that your code is readable, maintainable, and efficient. Here are some tips to keep in mind:
+
+- Always use the `catch()` method to handle errors that occur during asynchronous operations.
+- Use `Promise.all()` to execute multiple promises in parallel.
+- Use `async` and `await` as sparingly as possible to avoid creating overly complex code.
+- Use descriptive variable and function names to make your code more readable and maintainable.
+- Use a consistent coding style, such as the Airbnb JavaScript style guide, to ensure that your code is consistent and easy to read.
+
+export default ({ children }) => <article className='prose'>{children}</article>

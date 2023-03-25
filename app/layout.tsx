@@ -10,13 +10,13 @@ import Seo from '@/components/Seo'
 const inter = Inter({
   weight: ['500', '600', '700', '800', '900'],
   variable: '--font-inter',
-  display: 'optional',
+  display: 'swap',
   subsets: ['latin'],
 })
 
 const roboto_mono = Roboto_Mono({
   variable: '--font-roboto-mono',
-  display: 'optional',
+  display: 'swap',
   subsets: ['latin', 'latin'],
 })
 
@@ -29,9 +29,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       lang='en'
       className={`${inter.variable} ${roboto_mono.variable} h-full antialiased`}
     >
-      {/* <head>
-        <script dangerouslySetInnerHTML={{ __html: modeScript }} />
-      </head> */}
       <Seo templateTitle='Home' />
       <body className='flex h-full flex-col bg-zinc-50 dark:bg-black'>
         <div className='fixed inset-0 flex justify-center sm:px-8'>

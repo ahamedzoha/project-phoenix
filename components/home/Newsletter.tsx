@@ -1,4 +1,5 @@
 'use client'
+
 import Button from '@/components/buttons/NewButton'
 
 export default function Newsletter() {
