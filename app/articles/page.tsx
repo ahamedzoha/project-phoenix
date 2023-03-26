@@ -4,6 +4,7 @@ import Article from '@/components/articles/Article'
 import SimpleLayout from '@/components/layout/SimpleLayout'
 
 const ArticlesPage = async () => {
+  // Getting all the articles sorted by date in descending order (latest first)
   const allArticleMetas = await (
     await getAllPostsMeta()
   ).sort((a, b) => {
