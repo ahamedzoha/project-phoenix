@@ -3,9 +3,9 @@
 @import './prism.css';
 @tailwind utilities;
 
-@layer base {
-  /* #region  /**======== Typography =========== */
-  /* .h0 {
+/* @layer base { */
+/* #region  /**======== Typography =========== */
+/* .h0 {
     @apply font-sans text-3xl font-bold md:text-5xl;
   }
 
@@ -33,5 +33,5 @@
   .p {
     @apply font-sans text-sm md:text-base;
   } */
-  /* #endregion  /**======== Typography =========== */
-}
+/* #endregion  /**======== Typography =========== */
+/* } */
