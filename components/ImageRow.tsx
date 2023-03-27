@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 import clsxm from '@/lib/clsxm'
 
-import image1 from '~/images/photos/image-1-dexter.png'
-import image2 from '~/images/photos/image-2-dexter.png'
-import image3 from '~/images/photos/image-3-ncash.png'
-import image4 from '~/images/photos/image-4.jpg'
-import image5 from '~/images/photos/image-5.jpg'
+import image1 from '~/images/photos/image-1-dexter.jpg'
+import image2 from '~/images/photos/image-2-dexter.jpg'
+import image3 from '~/images/photos/image-3-self.jpg'
+import image4 from '~/images/photos/image-4-ncash.jpg'
+import image5 from '~/images/photos/image-5-ncash.jpg'
 
 export default function ImageRow() {
   const rotations = [
@@ -24,7 +24,7 @@ export default function ImageRow() {
           <div
             key={image.src}
             className={clsxm(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 shadow-lg dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
               rotations[imageIndex % rotations.length]
             )}
           >
