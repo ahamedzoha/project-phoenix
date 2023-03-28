@@ -1,5 +1,5 @@
 import { formatDate } from '@/lib/formatDate'
-import { getPostBySlug } from '@/lib/mdx'
+import { getAllPostsMeta, getPostBySlug } from '@/lib/mdx'
 
 import BackButton from '@/components/articles/BackButton'
 import { Container } from '@/components/layout/Container'
@@ -8,6 +8,15 @@ import { Prose } from '@/components/layout/Prose'
 const getPageContent = async (slug: string) => {
   const { meta, content } = await getPostBySlug(slug)
   return { meta, content }
+}
+
+export const generateStaticParams = async () => {
+  const posts = await getAllPostsMeta()
+  return posts.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+  }))
 }
 
 export const generateMetadata = async ({
