@@ -35,6 +35,5 @@ export const getAllPostsMeta = async () => {
     const { meta } = await getPostBySlug(file)
     posts.push(meta)
   }
-
   return posts
 }

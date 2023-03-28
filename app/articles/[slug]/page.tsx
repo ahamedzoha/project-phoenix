@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 import { formatDate } from '@/lib/formatDate'
 import { getAllPostsMeta, getPostBySlug } from '@/lib/mdx'
 
@@ -6,8 +8,12 @@ import { Container } from '@/components/layout/Container'
 import { Prose } from '@/components/layout/Prose'
 
 const getPageContent = async (slug: string) => {
-  const { meta, content } = await getPostBySlug(slug)
-  return { meta, content }
+  try {
+    const { meta, content } = await getPostBySlug(slug)
+    return { meta, content }
+  } catch (error) {
+    notFound()
+  }
 }
 
 export const generateStaticParams = async () => {
