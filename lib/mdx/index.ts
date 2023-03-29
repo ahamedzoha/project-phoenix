@@ -16,14 +16,18 @@ export const getPostBySlug = async (slug: string) => {
   const realSlug = slug.replace(/\.mdx$/, '')
   const filePath = path.join(contentRootDirectory, `${realSlug}.mdx`)
 
-  const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
+  try {
+    const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
 
-  const { frontmatter, content } = await compileMDX({
-    source: fileContent,
-    options: { parseFrontmatter: true },
-  })
+    const { frontmatter, content } = await compileMDX({
+      source: fileContent,
+      options: { parseFrontmatter: true },
+    })
 
-  return { meta: { ...frontmatter, slug: realSlug } as PostMeta, content }
+    return { meta: { ...frontmatter, slug: realSlug } as PostMeta, content }
+  } catch (error) {
+    throw new Error(`Error getting post by slug: ${error}`)
+  }
 }
 
 export const getAllPostsMeta = async () => {

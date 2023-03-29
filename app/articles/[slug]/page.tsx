@@ -32,8 +32,14 @@ export const generateMetadata = async ({
     slug: string
   }
 }) => {
-  const { meta } = await getPageContent(params.slug)
-  return { title: meta.title }
+  try {
+    const { meta } = await getPageContent(params.slug)
+    return { title: meta.title }
+  } catch (error) {
+    return {
+      title: 'Not Found',
+    }
+  }
 }
 
 const ArticlePage = async ({
@@ -43,15 +49,15 @@ const ArticlePage = async ({
     slug: string
   }
 }) => {
-  const { meta, content } = await getPageContent(params.slug)
+  const article = await getPageContent(params.slug)
+  const { meta, content } = article
 
   return (
     <Container className='mt-16 lg:mt-32'>
       <div className='xl:relative'>
         <div className='mx-auto max-w-2xl'>
-          {/* {previousPathname && ( */}
           <BackButton />
-          {/* )} */}
+
           <article>
             <header className='flex flex-col'>
               <h1 className='mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl'>
