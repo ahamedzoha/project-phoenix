@@ -12,44 +12,6 @@ import SimpleLayout from '@/components/layout/SimpleLayout'
 // import logoOpenShuttle from '~/logos/open-shuttle.svg'
 // import logoPlanetaria from '~/logos/planetaria.svg'
 
-// const projects = [
-//   {
-//     name: 'Planetaria',
-//     description:
-//       'Creating technology to empower civilians to explore space on their own terms.',
-//     link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-//     logo: logoPlanetaria,
-//   },
-//   {
-//     name: 'Animaginary',
-//     description:
-//       'High performance web animation library, hand-written in optimized WASM.',
-//     link: { href: '#', label: 'github.com' },
-//     logo: logoAnimaginary,
-//   },
-//   {
-//     name: 'HelioStream',
-//     description:
-//       'Real-time video streaming library, optimized for interstellar transmission.',
-//     link: { href: '#', label: 'github.com' },
-//     logo: logoHelioStream,
-//   },
-//   {
-//     name: 'cosmOS',
-//     description:
-//       'The operating system that powers our Planetaria space shuttles.',
-//     link: { href: '#', label: 'github.com' },
-//     logo: logoCosmos,
-//   },
-//   {
-//     name: 'OpenShuttle',
-//     description:
-//       'The schematics for the first rocket I designed that successfully made it to orbit.',
-//     link: { href: '#', label: 'github.com' },
-//     logo: logoOpenShuttle,
-//   },
-// ]
-
 const ProjectsPage = async () => {
   const projectsx = await getAllProjects()
 
@@ -76,14 +38,16 @@ const ProjectsPage = async () => {
                 unoptimized
               />
             </div>
-            <h2 className='mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
+            <h2 className='mt-6 flex text-base font-semibold text-zinc-800 dark:text-zinc-100'>
               <Card.Link href={project.github}>
                 {project.title.rendered}
               </Card.Link>
+              {project.work_in_progress === 'Yes' && <WorkInProgress />}
             </h2>
             <Card.Description>
               {sanitize(project.short_description)}
             </Card.Description>
+
             <p className='relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200'>
               <LinkIcon className='h-6 w-6 flex-none' />
               <span className='ml-2'>{project.github}</span>
@@ -92,6 +56,14 @@ const ProjectsPage = async () => {
         ))}
       </ul>
     </SimpleLayout>
+  )
+}
+
+const WorkInProgress = () => {
+  return (
+    <div className='ml-4 rounded-lg bg-red-600 px-2 py-0'>
+      <span className='text-xs font-bold text-white'>WIP</span>
+    </div>
   )
 }
 

@@ -7,6 +7,7 @@ export interface ProjectFields {
   description: string
   github: string
   live_link: string
+  work_in_progress: 'Yes' | 'No'
 }
 
 // Project type is a union of ProjectFields and WP_REST_API_Post
