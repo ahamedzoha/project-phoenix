@@ -1,3 +1,17 @@
-import WpApiClient from 'wordpress-api-client'
+import WpApiClient, { DefaultEndpoint } from 'wordpress-api-client'
 
-export const client = new WpApiClient('https://cms.azazahamed.com')
+import { Project } from '@/lib/wp/types'
+
+export class WpClient extends WpApiClient {
+  constructor() {
+    super('https://cms.azazahamed.com', {
+      onError: (error) => {
+        throw new Error(error)
+      },
+    })
+  }
+
+  public projects(): DefaultEndpoint<Project> {
+    return this.addPostType<Project>('wp/v2/projects')
+  }
+}

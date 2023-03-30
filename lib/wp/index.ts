@@ -1,13 +1,17 @@
-import { client } from '@/lib/wp/client'
+import { WpClient } from '@/lib/wp/client'
+import { Project } from '@/lib/wp/types'
+
+const Client = new WpClient()
 
 // Getting wordpress posts using github.com/dkress59/wordpress-api-client
 export const getAllWpPosts = async () => {
-  const postCategories = await client.postCategory().find()
-  const posts = await client.post().find(
-    new URLSearchParams({
-      order: 'desc',
-      per_page: '5',
-    })
-  )
-  return { posts, postCategories }
+  const posts = await Client.post().find()
+
+  return posts
+}
+
+export const getAllProjects = async () => {
+  const projects = await Client.projects().find()
+
+  return projects as Project[]
 }
