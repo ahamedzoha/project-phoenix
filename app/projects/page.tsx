@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { sanitize } from '@/lib/sanitizeResponseString'
+import { sanitizeHTML, sanitizeUrl } from '@/lib/sanitizeResponseString'
 import { getAllProjects } from '@/lib/wp'
 
 import { Card } from '@/components/layout/Card'
@@ -35,7 +35,6 @@ const ProjectsPage = async () => {
                 height={48}
                 alt=''
                 className='h-8 w-8'
-                unoptimized
               />
             </div>
             <h2 className='mt-6 flex text-base font-semibold text-zinc-800 dark:text-zinc-100'>
@@ -45,12 +44,16 @@ const ProjectsPage = async () => {
               {project.work_in_progress === 'Yes' && <WorkInProgress />}
             </h2>
             <Card.Description>
-              {sanitize(project.short_description)}
+              {sanitizeHTML(project.short_description)}
             </Card.Description>
 
             <p className='relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200'>
-              <LinkIcon className='h-6 w-6 flex-none' />
-              <span className='ml-2'>{project.github}</span>
+              {project.github.length > 0 && (
+                <>
+                  <LinkIcon className='h-6 w-6 flex-none' />
+                  <span className='ml-2'>{sanitizeUrl(project.github)}</span>
+                </>
+              )}
             </p>
           </Card>
         ))}
