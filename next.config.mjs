@@ -25,7 +25,11 @@ const nextConfig = {
 
   // Uncoment to add domain whitelist
   images: {
-    domains: ['azazahamed.com', 'localhost'],
+    domains: [
+      'azazahamed.com',
+      'localhost',
+      'phoenix-blog-media.s3.ap-southeast-1.amazonaws.com',
+    ],
   },
 }
 

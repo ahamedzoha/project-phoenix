@@ -5,10 +5,6 @@ import Button from '@/components/buttons/NewButton'
 import cisLogo from '~/logos/cisLogo.svg'
 import imLogo from '~/logos/imLogo.svg'
 import iubLogo from '~/logos/iubLogo.svg'
-// import logoAirbnb from '~/logos/airbnb.svg'
-// import logoFacebook from '~/logos/facebook.svg'
-// import logoPlanetaria from '~/logos/planetaria.svg'
-// import logoStarbucks from '~/logos/starbucks.svg'
 import upworkLogo from '~/logos/upworkLogo.svg'
 
 interface Role {
