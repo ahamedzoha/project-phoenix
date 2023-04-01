@@ -23,9 +23,6 @@ const roboto_mono = Roboto_Mono({
   subsets: ['latin', 'latin'],
 })
 
-// export const metadata = {
-
-// }
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ServerThemeProvider attribute='class'>
