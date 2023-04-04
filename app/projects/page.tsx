@@ -1,72 +1,82 @@
 import Image from 'next/image'
 
-import { sanitizeHTML, sanitizeUrl } from '@/lib/sanitizeResponseString'
-import { getAllProjects } from '@/lib/wp'
-
 import { Card } from '@/components/layout/Card'
 import SimpleLayout from '@/components/layout/SimpleLayout'
 
-// import logoAnimaginary from '~/logos/animaginary.svg'
-// import logoCosmos from '~/logos/cosmos.svg'
-// import logoHelioStream from '~/logos/helio-stream.svg'
-// import logoOpenShuttle from '~/logos/open-shuttle.svg'
-// import logoPlanetaria from '~/logos/planetaria.svg'
+const projects = [
+  {
+    name: 'Dexter',
+    description:
+      "A comprehensive internal admin dashboard with Role-Based-Access-Control for BKash's campaign and fleet management.",
+    link: { href: 'http://retailvoice.xyz', label: 'retailvoice.xyz' },
+    logo: '/logos/dexter-logo.png',
+  },
+  {
+    name: 'StockFolio',
+    description:
+      'A dashboard SaaS created using the latest tech in web development. This app helps users get all the necessary info on the Dhaka Stock Exchange and manage portfolios.',
+    link: {
+      href: 'https://github.com/ahamedzoha/next-dse',
+      label: 'github.com',
+    },
+    logo: '/logos/stockfolio-logo.png',
+  },
+  {
+    name: 'Scrapify',
+    description:
+      'An automatically cloud-scheduled scraping project that populates a database for near real-time stock market data.',
+    link: {
+      href: 'https://github.com/ahamedzoha/scrapify',
+      label: 'github.com',
+    },
+    logo: '/logos/scrapify-logo.png',
+  },
 
-const ProjectsPage = async () => {
-  const projectsx = await getAllProjects()
+  {
+    name: 'Phoenix',
+    description:
+      'A thoughtfully built portfolio website with a hefty sprinkle of over-engineered features. A JamStack app through and through! By, and for yours truly!',
+    link: {
+      href: 'https://github.com/ahamedzoha/project-phoenix',
+      label: 'github.com',
+    },
+    logo: '/logos/phoenix-logo.png',
+  },
+]
 
-  // eslint-disable
+const ProjectsPage = () => {
   return (
     <SimpleLayout
       title='Things I’ve made trying to put my dent in the universe.'
       intro='I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.'
     >
-      {/* <pre>{JSON.stringify(projectsx, null, 2)}</pre> */}
       <ul
         role='list'
         className='grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3'
       >
-        {projectsx.map((project) => (
-          <Card as='li' key={project.id}>
+        {projects.map((project) => (
+          <Card as='li' key={project.name}>
             <div className='relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0'>
               <Image
-                src={project.icon}
-                width={48}
-                height={48}
+                src={project.logo}
                 alt=''
                 className='h-8 w-8'
+                width={32}
+                height={32}
               />
             </div>
-            <h2 className='mt-6 flex text-base font-semibold text-zinc-800 dark:text-zinc-100'>
-              <Card.Link href={project.github}>
-                {project.title.rendered}
-              </Card.Link>
-              {project.work_in_progress === 'Yes' && <WorkInProgress />}
+            <h2 className='mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
+              <Card.Link href={project.link.href}>{project.name}</Card.Link>
             </h2>
-            <Card.Description>
-              {sanitizeHTML(project.short_description)}
-            </Card.Description>
-
+            <Card.Description>{project.description}</Card.Description>
             <p className='relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200'>
-              {project.github.length > 0 && (
-                <>
-                  <LinkIcon className='h-6 w-6 flex-none' />
-                  <span className='ml-2'>{sanitizeUrl(project.github)}</span>
-                </>
-              )}
+              <LinkIcon className='h-6 w-6 flex-none' />
+              <span className='ml-2'>{project.link.label}</span>
             </p>
           </Card>
         ))}
       </ul>
     </SimpleLayout>
-  )
-}
-
-const WorkInProgress = () => {
-  return (
-    <div className='ml-4 rounded-lg bg-red-600 px-2 py-0'>
-      <span className='text-xs font-bold text-white'>WIP</span>
-    </div>
   )
 }
 
