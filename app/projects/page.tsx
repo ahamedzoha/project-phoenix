@@ -3,47 +3,44 @@ import Image from 'next/image'
 import { Card } from '@/components/layout/Card'
 import SimpleLayout from '@/components/layout/SimpleLayout'
 
-import logoAnimaginary from '~/logos/animaginary.svg'
-import logoCosmos from '~/logos/cosmos.svg'
-import logoHelioStream from '~/logos/helio-stream.svg'
-import logoOpenShuttle from '~/logos/open-shuttle.svg'
-import logoPlanetaria from '~/logos/planetaria.svg'
-
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Dexter',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      "A comprehensive internal admin dashboard with Role-Based-Access-Control for BKash's campaign and fleet management.",
+    link: { href: 'http://retailvoice.xyz', label: 'retailvoice.xyz' },
+    logo: '/logos/dexter-logo.png',
   },
   {
-    name: 'Animaginary',
+    name: 'StockFolio',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'A dashboard SaaS created using the latest tech in web development. This app helps users get all the necessary info on the Dhaka Stock Exchange and manage portfolios.',
+    link: {
+      href: 'https://github.com/ahamedzoha/next-dse',
+      label: 'github.com',
+    },
+    logo: '/logos/stockfolio-logo.png',
   },
   {
-    name: 'HelioStream',
+    name: 'Scrapify',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+      'An automatically cloud-scheduled scraping project that populates a database for near real-time stock market data.',
+    link: {
+      href: 'https://github.com/ahamedzoha/scrapify',
+      label: 'github.com',
+    },
+    logo: '/logos/scrapify-logo.png',
   },
+
   {
-    name: 'cosmOS',
+    name: 'Phoenix',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      'A thoughtfully built portfolio website with a hefty sprinkle of over-engineered features. A JamStack app through and through! By, and for yours truly!',
+    link: {
+      href: 'https://github.com/ahamedzoha/project-phoenix',
+      label: 'github.com',
+    },
+    logo: '/logos/phoenix-logo.png',
   },
 ]
 
@@ -64,7 +61,8 @@ const ProjectsPage = () => {
                 src={project.logo}
                 alt=''
                 className='h-8 w-8'
-                unoptimized
+                width={32}
+                height={32}
               />
             </div>
             <h2 className='mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
