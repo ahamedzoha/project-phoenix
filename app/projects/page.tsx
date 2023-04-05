@@ -8,7 +8,10 @@ const projects = [
     name: 'Dexter',
     description:
       "A comprehensive internal admin dashboard with Role-Based-Access-Control for BKash's campaign and fleet management.",
-    link: { href: 'http://retailvoice.xyz', label: 'retailvoice.xyz' },
+    link: {
+      href: 'http://dexter-retailvoice.xyz',
+      label: 'dexter-retailvoice.xyz',
+    },
     logo: '/logos/dexter-logo.png',
   },
   {
@@ -37,8 +40,8 @@ const projects = [
     description:
       'A thoughtfully built portfolio website with a hefty sprinkle of over-engineered features. A JamStack app through and through! By, and for yours truly!',
     link: {
-      href: 'https://github.com/ahamedzoha/project-phoenix',
-      label: 'github.com',
+      href: 'https://azazahamed.com',
+      label: 'azazahamed.com',
     },
     logo: '/logos/phoenix-logo.png',
   },
