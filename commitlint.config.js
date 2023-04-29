@@ -19,6 +19,7 @@ module.exports = {
         'revert',
         'vercel',
         'todo',
+        'update',
       ],
     ],
   },
