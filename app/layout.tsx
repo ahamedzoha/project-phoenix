@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { Inter, Roboto_Mono } from 'next/font/google'
 import { ServerThemeProvider } from 'next-themes'
 import React from 'react'
@@ -44,6 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Footer />
             </div>
           </Providers>
+          <Analytics />
         </body>
       </html>
     </ServerThemeProvider>
