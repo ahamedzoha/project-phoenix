@@ -29,7 +29,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <ServerThemeProvider attribute='class'>
       <html
         lang='en'
-        className={`${inter.variable} ${roboto_mono.variable} h-full antialiased`}
+        className={`${inter.className} ${roboto_mono.className} h-full antialiased`}
       >
         <Seo templateTitle='Home' />
         <body className='flex h-full flex-col bg-zinc-50 dark:bg-black'>
