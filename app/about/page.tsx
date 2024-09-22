@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
+import { RoughNotation, RoughNotationGroup } from 'react-rough-notation'
 
 import clsxm from '@/lib/clsxm'
 
@@ -11,7 +12,7 @@ import {
   TwitterIcon,
 } from '@/components/Social/SocialIcons'
 
-import portraitImage from '~/images/about-neon.jpg'
+import portraitImage from '~/images/avatar-new.jpg'
 
 const AboutPage = () => {
   return (
@@ -28,52 +29,88 @@ const AboutPage = () => {
           </div>
         </div>
         <div className='lg:order-first lg:row-span-2'>
-          <h1 className='text-4xl font-bold tracking-tight text-zinc-800  dark:text-zinc-100 sm:text-5xl'>
-            I’m Zoha. I live in Dhaka, where I develop the{' '}
-            <span
-              className='dark:drop-shadow-teal-700 text-teal-500 
+          <RoughNotationGroup show={true}>
+            <p className='text-balance text-sm font-semibold text-zinc-600 dark:text-zinc-400'>
+              <RoughNotation
+                type='underline'
+                strokeWidth={2}
+                color='#34D399'
+                order='1'
+              >
+                Full-Stack Software Engineer
+              </RoughNotation>
+            </p>
+            <h1 className='text-4xl font-bold tracking-tight text-zinc-800  dark:text-zinc-100 sm:text-5xl'>
+              I’m Zoha. I live in Dhaka, where I develop the{' '}
+              <span
+                className='dark:drop-shadow-teal-700 text-teal-500
             dark:text-teal-400 dark:drop-shadow-2xl'
-            >
-              {' '}
-              future.
-            </span>
-          </h1>
-          <div className='mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400'>
-            <p>
-              📖 Working in the industry for over 3 years, I have gained a
-              wealth of experience as a software developer. I have primarily
-              focused on front-end development using React and NextJS, and have
-              completed projects requiring REST API frameworks such as
-              NodeJS/Express with databases using PostgreSQL, MongoDB, and
-              Firebase. I have also learned various secure deployment
-              strategies, including Continuous Integration and Deployment
-              pipelines, which can be automated using GitHub Actions or Gitlabs
-              CI.
-            </p>
-            <p>
-              ⚡ In addition to my software engineering expertise, I am
-              currently studying system design and various software
-              architectures used by leading companies like Netflix, Airbnb,
-              Instagram, and Uber. I also have a strong passion for IoT
-              projects, particularly in the agricultural sector, as I believe
-              they have the potential to bring harmony and efficiency to the
-              world.
-            </p>
+              >
+                {' '}
+                future.
+              </span>
+            </h1>
+            <div className='mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400'>
+              <p>
+                With over 5 years of experience, I specialize in{' '}
+                <RoughNotation type='underline' color='#34D399' order='3'>
+                  JavaScript
+                </RoughNotation>{' '}
+                and{' '}
+                <RoughNotation type='underline' color='#F87171' order='4'>
+                  TypeScript
+                </RoughNotation>
+                , focusing on{' '}
+                <RoughNotation type='circle' color='#FBBF24' order='5'>
+                  React ecosystems
+                </RoughNotation>
+                . I've led high-value projects, optimized performance, and
+                mentored teams. My expertise extends to building scalable
+                applications and implementing efficient{' '}
+                <RoughNotation type='box' color='#A78BFA' order='6'>
+                  CI/CD pipelines
+                </RoughNotation>
+                .
+              </p>
+              <p>
+                Beyond coding, I'm passionate about{' '}
+                <RoughNotation type='underline' color='#60A5FA' order='7'>
+                  system design
+                </RoughNotation>{' '}
+                and{' '}
+                <RoughNotation type='underline' color='#34D399' order='8'>
+                  software architectures
+                </RoughNotation>
+                . I'm currently exploring these concepts through the lens of
+                industry leaders like Netflix and Airbnb. My interests also
+                extend to IoT projects in agriculture, where I see potential for
+                creating global harmony and efficiency.
+              </p>
 
-            <p>
-              🏗️ I am currently working on an exciting project that involves
-              managing Dhaka Stock Exchange portfolios. This project utilizes
-              cutting-edge technologies like Typescript, Google Cloud Functions,
-              Pub/Sub, Scheduler Firestore, and NextJS to deliver a robust and
-              efficient platform. As part of this project, I am recording and
-              storing near real-time stock data, which can be leveraged in the
-              future for AI-based trading bots. This is an excellent opportunity
-              for me to explore my passion for both software development and
-              finance. I'm excited to use my skills and knowledge to build a
-              platform that can help individuals make smarter investment
-              decisions. Stay tuned for updates on this exciting project!
-            </p>
-          </div>
+              <p>
+                <RoughNotation
+                  brackets='left'
+                  type='bracket'
+                  color='#F87171'
+                  order='2'
+                  strokeWidth={2}
+                >
+                  🏗️ I am currently working on an exciting project that involves
+                  managing Dhaka Stock Exchange portfolios. This project
+                  utilizes cutting-edge technologies like Typescript, Google
+                  Cloud Functions, Pub/Sub, Scheduler Firestore, and NextJS to
+                  deliver a robust and efficient platform. As part of this
+                  project, I am recording and storing near real-time stock data,
+                  which can be leveraged in the future for AI-based trading
+                  bots. This is an excellent opportunity for me to explore my
+                  passion for both software development and finance. I'm excited
+                  to use my skills and knowledge to build a platform that can
+                  help individuals make smarter investment decisions. Stay tuned
+                  for updates on this exciting project!
+                </RoughNotation>
+              </p>
+            </div>
+          </RoughNotationGroup>
         </div>
         <div className='lg:pl-20'>
           <ul role='list'>

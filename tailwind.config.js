@@ -79,10 +79,16 @@ module.exports = {
             backgroundPosition: '700px 0',
           },
         },
+
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
       },
       animation: {
         flicker: 'flicker 3s linear infinite',
         shimmer: 'shimmer 1.3s linear infinite',
+        fadeIn: 'fadeIn 1s ease-in-out',
       },
     },
 

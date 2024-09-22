@@ -9,7 +9,7 @@ import { Fragment, useEffect, useRef } from 'react'
 
 import { Container } from '@/components/layout/Container'
 
-import avatarImage from '~/images/avatar.jpg'
+import avatarImage from '~/images/avatar-new-2.jpg'
 
 function CloseIcon(props: React.SVGProps<SVGSVGElement>) {
   return (

@@ -94,7 +94,7 @@ export default function Resume() {
         ))}
       </ol>
       <Button
-        href='/resume/AzazAhamed-resume.pdf'
+        href='/resume/azaz_ahamed_resume.pdf'
         alt='alt text'
         target='_blank'
         rel='noopener noreferrer'
