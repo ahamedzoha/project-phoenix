@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Azaz Ahamed's Articles",
     statusBarStyle: 'black-translucent',
   },
-  colorScheme: 'dark light',
+  // colorScheme: 'dark light',
 }
 
 const Layout = ({ children }: { children: React.ReactNode }) => {

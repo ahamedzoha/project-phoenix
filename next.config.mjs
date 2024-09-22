@@ -13,7 +13,6 @@ const withMDx = nextMDX({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
     mdxRs: true,
   },
   eslint: {
@@ -23,12 +22,17 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  // Uncoment to add domain whitelist
   images: {
-    domains: [
-      'azazahamed.com',
-      'localhost',
-      'phoenix-blog-media.s3.ap-southeast-1.amazonaws.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'azazahamed.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+        port: '3000',
+      },
     ],
   },
 }
