@@ -9,7 +9,6 @@ import Providers from '@/lib/context/Providers'
 
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
-import Seo from '@/components/Seo'
 
 const inter = Inter({
   weight: ['500', '600', '700', '800', '900'],
@@ -31,7 +30,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         lang='en'
         className={`${inter.variable} ${roboto_mono.variable} h-full antialiased`}
       >
-        <Seo templateTitle='Home' />
         <body className='flex h-full flex-col bg-zinc-50 dark:bg-black'>
           <Providers>
             <div className='fixed inset-0 flex justify-center sm:px-8 '>

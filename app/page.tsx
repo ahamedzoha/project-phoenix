@@ -10,6 +10,7 @@ import Newsletter from '@/components/home/Newsletter'
 import Resume from '@/components/home/Resume'
 import ImageRow from '@/components/ImageRow'
 import { Container } from '@/components/layout/Container'
+import Seo from '@/components/Seo'
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -36,6 +37,7 @@ const HomePage = async () => {
 
   return (
     <>
+      <Seo templateTitle='Home' />
       <Container className='mt-9'>
         <div className='flex flex-col items-start gap-8 md:flex-row'>
           <div className='flex-1'>

@@ -1,66 +1,102 @@
-import { GetServerSideProps } from 'next'
+import { FC } from 'react'
 
+/**
+ * Default meta information for the website.
+ * Can be overridden by passing props to the Seo component.
+ */
 const defaultMeta = {
-  title:
-    'Full-Stack React & Next.js Developer | Affordable Rates & Reliable Services',
+  title: 'Full-Stack Software Engineer | React & Next.js Expert | Azaz Ahamed',
   siteName:
-    'Azaz Ahamed Zoha | Full-Stack React & Next.js Developer | Affordable Rates & Reliable Services',
+    'Azaz Ahamed | Full-Stack Software Engineer | React & Next.js Specialist',
   description:
-    'Looking for a full-stack developer with experience in React & Next.js? I, Azaz Ahamed Zoha, am a professional developer with 3+ years of experience, offering affordable rates and reliable services. Contact me today to discuss your project!',
-  /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
+    'Azaz Ahamed, a full-stack software engineer with over 5 years of experience in JavaScript and TypeScript. Specializing in React, Next.js, and scalable applications. Offering reliable, high-quality services. Get in touch today!',
   url: 'https://azazahamed.com',
   type: 'website',
   robots: 'follow, index',
-  /**
-   * No need to be filled, will be populated with openGraph function
-   * If you wish to use a normal image, just specify the path below
-   */
-  image: 'https://azazahamed.com/images/logo_meta.jpg',
+  image: 'https://azazahamed.com/images/avatar-new-2.jpg',
 }
 
 type SeoProps = {
+  /**
+   * Pathname to generate the canonical URL and Open Graph URL.
+   */
   pathname?: string
-  date?: string
-  templateTitle?: string
-} & Partial<typeof defaultMeta>
 
-const Seo: React.FC<SeoProps> = (props) => {
+  /**
+   * Override the default description for the page.
+   */
+  description?: string
+
+  /**
+   * Published date of the content, if applicable (e.g., for blog posts).
+   */
+  date?: string
+
+  /**
+   * Template title for the page. If provided, it will append to the default site name.
+   */
+  templateTitle?: string
+
+  /**
+   * Override the default image for Open Graph and Twitter cards.
+   */
+  image?: string
+}
+
+/**
+ * SEO Component for setting up meta tags for the page.
+ * It extends default meta info and allows custom values per page.
+ *
+ * @param props - The SeoProps to override defaults.
+ */
+const Seo: FC<SeoProps> = ({
+  pathname = '',
+  date,
+  templateTitle,
+  description = defaultMeta.description,
+  image = defaultMeta.image, // Accepts custom image or defaults to avatar
+}) => {
+  // Merge default meta with any provided props
   const meta = {
     ...defaultMeta,
-    ...props,
+    title: templateTitle
+      ? `${templateTitle} | ${defaultMeta.siteName}`
+      : defaultMeta.title,
+    description,
+    image,
+    url: `${defaultMeta.url}${pathname}`,
   }
-  meta['title'] = props.templateTitle
-    ? `${props.templateTitle} | ${meta.siteName}`
-    : meta.title
 
   return (
     <>
+      {/* Page title */}
       <title>{meta.title}</title>
+
+      {/* Meta tags for robots and description */}
       <meta name='robots' content={meta.robots} />
-      <meta content={meta.description} name='description' />
-      <meta property='og:url' content={`${meta.url}${props.pathname}`} />
-      <link rel='canonical' href={`${meta.url}${props.pathname}`} />
-      {/* Open Graph */}
+      <meta name='description' content={meta.description} />
+
+      {/* Open Graph Meta Tags */}
+      <meta property='og:url' content={meta.url} />
+      <link rel='canonical' href={meta.url} />
       <meta property='og:type' content={meta.type} />
       <meta property='og:site_name' content={meta.siteName} />
       <meta property='og:description' content={meta.description} />
       <meta property='og:title' content={meta.title} />
-      <meta name='image' property='og:image' content={meta.image} />
-      {/* Twitter */}
+      <meta property='og:image' content={meta.image} />
+
+      {/* Twitter Meta Tags */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:site' content='@azaz_zoha' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
       <meta name='twitter:image' content={meta.image} />
-      {meta.date && (
-        <>
-          <meta property='article:published_time' content={meta.date} />
-          <meta
-            name='publish_date'
-            property='og:publish_date'
-            content={meta.date}
-          />
 
+      {/* Date for articles/blog posts */}
+      {date && (
+        <>
+          <meta property='article:published_time' content={date} />
+          <meta name='publish_date' property='og:publish_date' content={date} />
           <meta
             name='author'
             property='article:author'
@@ -73,6 +109,8 @@ const Seo: React.FC<SeoProps> = (props) => {
       {favicons.map((linkProps) => (
         <link key={linkProps.href} {...linkProps} />
       ))}
+
+      {/* Additional meta tags */}
       <meta name='msapplication-TileColor' content='#ffffff' />
       <meta name='msapplication-config' content='/favicon/browserconfig.xml' />
       <meta name='theme-color' content='#ffffff' />
@@ -80,15 +118,7 @@ const Seo: React.FC<SeoProps> = (props) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const pathname = context.req.url
-  return {
-    props: {
-      pathname,
-    },
-  }
-}
-
+// Define favicons for different platforms
 const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
   {
     rel: 'apple-touch-icon',
