@@ -1,7 +1,4 @@
-// import { getAllArticles } from '@/lib/getAllArticles'
-
 import Image from 'next/image'
-import { RoughNotation, RoughNotationGroup } from 'react-rough-notation'
 
 import { getAllPostsMeta } from '@/lib/mdx'
 
@@ -21,6 +18,8 @@ import SocialLink from '@/components/Social/SocialLink'
 import architectureOnDark from '~/images/architecture-on-dark.svg'
 import architectureOnLight from '~/images/architecture-on-light.svg'
 
+const STACK = ['node', 'typescript', 'react', 'next.js', 'postgres', 'docker']
+
 const HomePage = async () => {
   // Get the latest 3 articles
   const articles = (await getAllPostsMeta())
@@ -38,101 +37,38 @@ const HomePage = async () => {
   return (
     <>
       <Seo templateTitle='Home' />
-      <Container className='mt-9'>
-        <div className='flex flex-col items-start gap-8 md:flex-row'>
-          <div className='flex-1'>
-            <RoughNotationGroup show={true}>
-              <p className='text-sm font-semibold text-balance text-zinc-600 dark:text-zinc-400'>
-                <RoughNotation
-                  animationDuration={250}
-                  type='underline'
-                  strokeWidth={2}
-                  color='#34D399'
-                  order='1'
+      <Container className='mt-16 sm:mt-24'>
+        <div className='grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16'>
+          {/* Thesis */}
+          <div className='max-w-xl'>
+            <p className='font-mono text-[13px] tracking-wide text-accent-500 dark:text-accent-400'>
+              <span className='text-zinc-400 dark:text-zinc-600'>{'// '}</span>
+              full-stack · systems engineer
+            </p>
+            <h1 className='mt-5 font-mono text-4xl leading-[1.1] font-bold tracking-tight text-balance text-zinc-900 sm:text-5xl dark:text-zinc-50'>
+              I build systems that scale
+              <span
+                aria-hidden='true'
+                className='ml-1.5 inline-block h-[0.9em] w-[0.5ch] translate-y-[0.08em] animate-blink bg-accent-400 motion-reduce:animate-none'
+              />
+            </h1>
+            <p className='mt-6 text-base leading-7 text-zinc-600 dark:text-zinc-400'>
+              I&apos;m Azaz Ahamed — a full-stack engineer who designs resilient
+              backend services and the React/Next.js interfaces that sit on top
+              of them. I write about the Node.js event loop, async patterns, and
+              shipping software that holds up in production.
+            </p>
+            <ul className='mt-7 flex flex-wrap gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400'>
+              {STACK.map((tech) => (
+                <li
+                  key={tech}
+                  className='rounded-md border border-zinc-200 px-2 py-1 dark:border-ink-700'
                 >
-                  Full-Stack Software Engineer
-                </RoughNotation>
-              </p>
-              <h1 className='mt-2 text-4xl font-bold tracking-tight text-balance text-zinc-800 sm:text-5xl dark:text-zinc-100'>
-                Crafting Scalable Solutions with{' '}
-                <RoughNotation
-                  animationDuration={175}
-                  type='highlight'
-                  color='#cf9d12'
-                  order='3'
-                >
-                  NodeJS
-                </RoughNotation>{' '}
-                &{' '}
-                <RoughNotation
-                  animationDuration={200}
-                  type='circle'
-                  color='#60A5FA'
-                  strokeWidth={2}
-                  order='4'
-                >
-                  React
-                </RoughNotation>
-              </h1>
-              <RoughNotation
-                animationDuration={180}
-                brackets='left'
-                type='bracket'
-                color='#F87171'
-                order='2'
-                strokeWidth={2}
-              >
-                <p className='mt-6 text-base text-zinc-600 dark:text-zinc-400'>
-                  Welcome! I'm Azaz Ahamed, a passionate developer specializing
-                  in{' '}
-                  <RoughNotation
-                    animationDuration={300}
-                    type='box'
-                    color='#34D399'
-                    order='4'
-                  >
-                    React
-                  </RoughNotation>
-                  ,{' '}
-                  <RoughNotation
-                    animationDuration={286}
-                    type='box'
-                    color='#60A5FA'
-                  >
-                    Next.js
-                  </RoughNotation>
-                  , and{' '}
-                  <RoughNotation
-                    animationDuration={250}
-                    type='underline'
-                    color='#F87171'
-                  >
-                    Express
-                  </RoughNotation>
-                  . With expertise in{' '}
-                  <RoughNotation
-                    animationDuration={350}
-                    type='box'
-                    color='#FBBF24'
-                  >
-                    PostgreSQL
-                  </RoughNotation>{' '}
-                  for robust data management and{' '}
-                  <RoughNotation
-                    animationDuration={300}
-                    type='underline'
-                    color='#A78BFA'
-                  >
-                    Docker
-                  </RoughNotation>{' '}
-                  for seamless deployments, I build high-performance
-                  applications that drive business growth. Explore my portfolio
-                  to see how I leverage cutting-edge tech to solve complex
-                  challenges.
-                </p>
-              </RoughNotation>
-            </RoughNotationGroup>
-            <div className='mt-6 flex gap-6'>
+                  {tech}
+                </li>
+              ))}
+            </ul>
+            <div className='mt-8 flex gap-5'>
               <SocialLink
                 href='https://twitter.com/azaz_zoha'
                 aria-label='Follow me on Twitter'
@@ -150,32 +86,47 @@ const HomePage = async () => {
               />
             </div>
           </div>
-          <div className='flex items-center justify-center'>
-            {/* Light Mode Image */}
-            <Image
-              src={architectureOnLight}
-              alt='Azaz Ahamed'
-              height={350}
-              className='block animate-fadeIn transition-transform duration-300 hover:scale-105 dark:hidden'
-            />
 
-            {/* Dark Mode Image */}
-            <Image
-              src={architectureOnDark}
-              alt='Azaz Ahamed'
-              height={350}
-              className='hidden animate-fadeIn transition-transform duration-300 hover:scale-105 dark:block'
-            />
+          {/* Signature: the architecture diagram, framed as a terminal window */}
+          <div className='animate-fadeIn rounded-xl border border-zinc-200 bg-white/50 p-3 shadow-sm backdrop-blur-sm sm:p-4 dark:border-ink-700 dark:bg-ink-900/50'>
+            <div className='mb-3 flex items-center gap-1.5 px-1'>
+              <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
+              <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
+              <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
+              <span className='ml-2 font-mono text-[11px] text-zinc-400 dark:text-zinc-500'>
+                architecture.svg
+              </span>
+            </div>
+            <div className='flex items-center justify-center rounded-lg bg-zinc-50/60 p-4 dark:bg-ink-950/40'>
+              <Image
+                src={architectureOnLight}
+                alt='System architecture diagram'
+                height={320}
+                className='block dark:hidden'
+              />
+              <Image
+                src={architectureOnDark}
+                alt='System architecture diagram'
+                height={320}
+                className='hidden dark:block'
+              />
+            </div>
           </div>
         </div>
       </Container>
       <ImageRow />
       <Container className='mt-24 md:mt-28'>
         <div className='mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2'>
-          <div className='flex flex-col gap-16'>
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
+          <div>
+            <h2 className='mb-10 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-500'>
+              <span className='text-accent-500 dark:text-accent-400'>~/</span>
+              latest writing
+            </h2>
+            <div className='flex flex-col gap-16'>
+              {articles.map((article) => (
+                <Article key={article.slug} article={article} />
+              ))}
+            </div>
           </div>
           <div className='space-y-10 lg:pl-16 xl:pl-24'>
             <Newsletter />

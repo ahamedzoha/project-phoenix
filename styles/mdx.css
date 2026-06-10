@@ -11,8 +11,7 @@
 
 [data-rehype-pretty-code-figure] pre,
 [data-rehype-pretty-code-figure] code {
-  font-family:
-    var(--font-roboto-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* Code-block title: ```js title="example.js" */
@@ -21,7 +20,7 @@
   border-radius: 0.5rem;
   background-color: rgb(39 39 42); /* zinc-800 */
   padding: 0.5rem 1rem;
-  font-family: var(--font-roboto-mono), ui-monospace, monospace;
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.8125rem;
   font-weight: 600;
   color: rgb(228 228 231); /* zinc-200 */

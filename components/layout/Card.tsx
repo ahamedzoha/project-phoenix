@@ -40,7 +40,7 @@ interface CardLinkProps {
 Card.Link = function CardLink({ children, ...props }: CardLinkProps) {
   return (
     <>
-      <div className='absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50' />
+      <div className='absolute -inset-x-4 -inset-y-6 z-0 scale-95 border border-zinc-100 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:border-ink-700 dark:bg-ink-800/50' />
       <Link {...props}>
         <span className='absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl' />
         <span className='relative z-10'>{children}</span>
@@ -61,7 +61,7 @@ Card.Title = function CardTitle({
   children,
 }: CardTitleProps) {
   return (
-    <Component className='text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100'>
+    <Component className='text-base font-semibold tracking-tight text-zinc-800 transition group-hover:text-accent-600 dark:text-zinc-100 dark:group-hover:text-accent-400'>
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -87,7 +87,7 @@ Card.Cta = function CardCta({ children }: CardCtaProps) {
   return (
     <div
       aria-hidden='true'
-      className='relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500'
+      className='relative z-10 mt-4 flex items-center font-mono text-xs text-accent-500 dark:text-accent-400'
     >
       {children}
       <ChevronRightIcon className='ml-1 h-4 w-4 stroke-current' />
@@ -113,7 +113,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
+        'relative z-10 order-first mb-3 flex items-center font-mono text-xs text-zinc-400 dark:text-zinc-500',
         decorate && 'pl-3.5',
       )}
       {...props}
@@ -123,7 +123,7 @@ Card.Eyebrow = function CardEyebrow({
           className='absolute inset-y-0 left-0 flex items-center'
           aria-hidden='true'
         >
-          <span className='h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500' />
+          <span className='h-4 w-0.5 rounded-full bg-accent-400/70' />
         </span>
       )}
       {children}

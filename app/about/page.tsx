@@ -34,7 +34,7 @@ const AboutPage = () => {
               <RoughNotation
                 type='underline'
                 strokeWidth={2}
-                color='#34D399'
+                color='#38E1C6'
                 order='1'
               >
                 Full-Stack Software Engineer
@@ -50,32 +50,32 @@ const AboutPage = () => {
             <div className='mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400'>
               <p>
                 With over 5 years of experience, I specialize in{' '}
-                <RoughNotation type='underline' color='#34D399' order='3'>
+                <RoughNotation type='underline' color='#38E1C6' order='3'>
                   JavaScript
                 </RoughNotation>{' '}
                 and{' '}
-                <RoughNotation type='underline' color='#F87171' order='4'>
+                <RoughNotation type='underline' color='#38E1C6' order='4'>
                   TypeScript
                 </RoughNotation>
                 , focusing on{' '}
-                <RoughNotation type='circle' color='#FBBF24' order='5'>
+                <RoughNotation type='circle' color='#38E1C6' order='5'>
                   React ecosystems
                 </RoughNotation>
                 . I've led high-value projects, optimized performance, and
                 mentored teams. My expertise extends to building scalable
                 applications and implementing efficient{' '}
-                <RoughNotation type='box' color='#A78BFA' order='6'>
+                <RoughNotation type='box' color='#38E1C6' order='6'>
                   CI/CD pipelines
                 </RoughNotation>
                 .
               </p>
               <p>
                 Beyond coding, I'm passionate about{' '}
-                <RoughNotation type='underline' color='#60A5FA' order='7'>
+                <RoughNotation type='underline' color='#38E1C6' order='7'>
                   system design
                 </RoughNotation>{' '}
                 and{' '}
-                <RoughNotation type='underline' color='#34D399' order='8'>
+                <RoughNotation type='underline' color='#38E1C6' order='8'>
                   software architectures
                 </RoughNotation>
                 . I'm currently exploring these concepts through the lens of
@@ -88,7 +88,7 @@ const AboutPage = () => {
                 <RoughNotation
                   brackets='left'
                   type='bracket'
-                  color='#F87171'
+                  color='#38E1C6'
                   order='2'
                   strokeWidth={2}
                 >
