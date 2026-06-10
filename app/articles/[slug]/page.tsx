@@ -47,6 +47,11 @@ const ArticlePage = async ({ params }: ArticleParams) => {
   const article = await getPageContent(slug)
   if (!article) return notFound()
 
+  // Drafts are reachable while developing, but 404 on the published site.
+  if (process.env.NODE_ENV === 'production' && article.meta.draft) {
+    notFound()
+  }
+
   const { meta, content } = article
 
   return (

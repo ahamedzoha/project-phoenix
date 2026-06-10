@@ -232,5 +232,3 @@ server.on('error', (err) => {
 In this example, the `http.createServer()` function is used to create a simple HTTP server. When a request is received, the server reads the contents of a file using the `fs.readFile()` function. If an error occurs during the `readFile()` operation, the server emits an `error` event with the error object as a parameter. The server also sets the HTTP status code to 500 and sends an error message to the client. Finally, the server listens for the `error` event and logs the error to the console.
 
 It is important to handle errors in the event loop carefully to ensure that your Node.js application remains stable and resilient. By using techniques such as `try...catch` and the `error` event, you can catch and handle errors that occur during asynchronous operations and ensure that your application remains responsive and efficient.
-
-export default ({ children }) => <article className='prose'>{children}</article>
