@@ -2,10 +2,20 @@
 
 import { usePathname } from 'next/navigation'
 
+import {
+  type CommandArticle,
+  CommandMenu,
+} from '@/components/layout/CommandMenu'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 
-export function SiteFrame({ children }: { children: React.ReactNode }) {
+export function SiteFrame({
+  children,
+  articles,
+}: {
+  children: React.ReactNode
+  articles: CommandArticle[]
+}) {
   const pathname = usePathname()
 
   // The Keystatic admin renders its own full-screen UI, so skip the site
@@ -27,6 +37,7 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
         <main>{children}</main>
         <Footer />
       </div>
+      <CommandMenu articles={articles} />
     </>
   )
 }

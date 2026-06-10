@@ -73,6 +73,23 @@ function MoonIcon(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
+function SearchIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox='0 0 24 24'
+      fill='none'
+      strokeWidth='1.6'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      aria-hidden='true'
+      {...props}
+    >
+      <circle cx='11' cy='11' r='6.5' />
+      <path d='m16 16 3.5 3.5' />
+    </svg>
+  )
+}
+
 function MobileNavItem({
   href,
   children,
@@ -433,7 +450,17 @@ export function Header() {
                 <MobileNavigation className='pointer-events-auto md:hidden' />
                 <DesktopNavigation className='pointer-events-auto hidden md:block' />
               </div>
-              <div className='flex justify-end md:flex-1'>
+              <div className='flex items-center justify-end gap-2 md:flex-1'>
+                <button
+                  type='button'
+                  aria-label='Search'
+                  onClick={() =>
+                    window.dispatchEvent(new CustomEvent('command-menu:open'))
+                  }
+                  className='group pointer-events-auto rounded-full border border-zinc-200 bg-white/80 px-3 py-2 shadow-lg shadow-zinc-800/5 backdrop-blur transition hover:border-accent-400/50 dark:border-ink-700 dark:bg-ink-900/80 dark:hover:border-accent-400/40'
+                >
+                  <SearchIcon className='h-6 w-6 stroke-zinc-500 transition group-hover:stroke-accent-400 dark:stroke-zinc-400' />
+                </button>
                 <div className='pointer-events-auto'>
                   <ModeToggle />
                 </div>

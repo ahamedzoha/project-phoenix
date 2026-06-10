@@ -6,3 +6,13 @@
 
 /* Class-based dark mode driven by next-themes (`attribute="class"`) */
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Command palette (cmdk) group labels */
+[cmdk-group-heading] {
+  padding: 0.6rem 0.75rem 0.3rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(113 113 122); /* zinc-500 */
+}
