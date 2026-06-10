@@ -25,6 +25,7 @@ interface PostMeta {
   slug: string
   description: string
   author: string
+  draft?: boolean // Drafts are hidden from the published site (see getAllPostsMeta)
   imageUrl?: string // Optional image URL to store first extracted image
 }
 
@@ -110,5 +111,7 @@ export const getAllPostsMeta = async (): Promise<PostMeta[]> => {
     }),
   )
 
-  return posts
+  // Hide drafts on the published site; keep them visible while developing.
+  const includeDrafts = process.env.NODE_ENV !== 'production'
+  return posts.filter((post) => includeDrafts || !post.draft)
 }

@@ -1,13 +1,17 @@
 import { collection, config, fields } from '@keystatic/core'
 
-// Local (git-based) editing: run `pnpm dev` and open /keystatic.
-// To edit from the deployed site instead, switch storage to:
-//   storage: { kind: 'github', repo: 'ahamedzoha/project-phoenix' }
-// and create a GitHub App (Keystatic walks you through it at /keystatic).
+// GitHub-backed editing (write from the deployed site) turns on automatically
+// once the GitHub App env vars are present; otherwise it falls back to local
+// editing (your working tree). This keeps `pnpm build` working before the App
+// exists. GitHub mode needs all of (Keystatic guides you at /keystatic):
+//   KEYSTATIC_GITHUB_CLIENT_ID, KEYSTATIC_GITHUB_CLIENT_SECRET,
+//   KEYSTATIC_SECRET, NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG
+const storage = process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG
+  ? ({ kind: 'github', repo: 'ahamedzoha/project-phoenix' } as const)
+  : ({ kind: 'local' } as const)
+
 export default config({
-  storage: {
-    kind: 'local',
-  },
+  storage,
   ui: {
     brand: { name: 'Project Phoenix' },
   },
@@ -27,6 +31,11 @@ export default config({
             label: 'Title',
             validation: { isRequired: true },
           },
+        }),
+        draft: fields.checkbox({
+          label: 'Draft',
+          description: 'Hide this article from the published site.',
+          defaultValue: false,
         }),
         author: fields.text({
           label: 'Author',

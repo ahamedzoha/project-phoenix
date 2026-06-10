@@ -74,7 +74,11 @@ CI (`.github/workflows/lint.yml`) runs typecheck, lint:strict, format:check, tes
 - **New article (rich editor):** `pnpm dev`, open `/keystatic`, and write in the
   Keystatic editor — it commits `content/<slug>.mdx` directly (git-based, no DB).
   Config: `keystatic.config.ts`; routes under `app/keystatic/` + `app/api/keystatic/`.
-  The admin renders chrome-free via `components/layout/SiteFrame.tsx`. Storage is
-  `local` (edit locally); switch to `github` mode in the config to edit from the
-  deployed site. You can still hand-write MDX — see `.claude/skills/write-article`.
+  The admin renders chrome-free via `components/layout/SiteFrame.tsx`.
+  - **Storage:** `local` in dev (edits your working tree), `github` in production
+    (edit from the deployed site). GitHub mode needs the env vars in `.env.example`.
+  - **Drafts:** the `Draft` checkbox sets `draft: true` in frontmatter; drafts are
+    hidden from all listings and 404 on the published site, but stay visible in
+    `pnpm dev` (filtering lives in `lib/mdx` + `app/articles/[slug]/page.tsx`).
+  - You can still hand-write MDX — see `.claude/skills/write-article`.
 - **New page:** see `.claude/skills/new-page`.
