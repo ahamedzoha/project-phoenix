@@ -8,6 +8,8 @@ dependsOn = ["setup"]
 cmds = [
   "npm install -g corepack@latest",
   "corepack enable",
-  "pnpm install --frozen-lockfile",
+  # --prod=false: the build needs devDependencies (tailwindcss, typescript,
+  # next-sitemap, ...) even when Coolify sets NODE_ENV/production in the env.
+  "pnpm install --frozen-lockfile --prod=false",
 ]
 cacheDirectories = ["/root/.local/share/pnpm/store/v3"]
