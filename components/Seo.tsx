@@ -83,14 +83,13 @@ const Seo: FC<SeoProps> = ({
       <meta property='og:site_name' content={meta.siteName} />
       <meta property='og:description' content={meta.description} />
       <meta property='og:title' content={meta.title} />
-      <meta property='og:image' content={meta.image} />
+      {/* og:image / twitter:image come from the dynamic opengraph-image routes */}
 
       {/* Twitter Meta Tags */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:site' content='@azaz_zoha' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
-      <meta name='twitter:image' content={meta.image} />
 
       {/* Date for articles/blog posts */}
       {date && (

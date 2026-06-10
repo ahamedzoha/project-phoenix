@@ -6,6 +6,11 @@ import rehypePrettyCode, {
 } from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 
+import { MdxPre } from '@/components/articles/MdxPre'
+
+// Custom MDX element overrides (each fenced code block gets a copy button).
+const mdxComponents = { pre: MdxPre }
+
 // Code blocks render on a dark panel in both light and dark site themes
 // (see the `prose` `--tw-prose-pre-bg` in tailwind.config.js), so a single
 // dark Shiki theme is used. Shiki emits inline token colors that override the
@@ -25,8 +30,16 @@ interface PostMeta {
   slug: string
   description: string
   author: string
+  readingTime: number // Estimated minutes to read
   draft?: boolean // Drafts are hidden from the published site (see getAllPostsMeta)
   imageUrl?: string // Optional image URL to store first extracted image
+}
+
+// Rough reading-time estimate (~200 words/min) from the raw MDX body.
+const computeReadingTime = (raw: string): number => {
+  const body = raw.replace(/^---[\s\S]*?---/, '')
+  const words = body.trim().split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.round(words / 200))
 }
 
 interface PostData {
@@ -64,6 +77,7 @@ export const getPostBySlug = async (slug: string): Promise<PostData> => {
 
     const { frontmatter, content } = await compileMDX({
       source: fileContent,
+      components: mdxComponents,
       options: {
         parseFrontmatter: true,
         mdxOptions: {
@@ -85,6 +99,7 @@ export const getPostBySlug = async (slug: string): Promise<PostData> => {
       meta: {
         ...frontmatter,
         slug: realSlug,
+        readingTime: computeReadingTime(fileContent),
         imageUrl: firstImageUrl, // Store the first image URL if available
       } as PostMeta,
       content,
