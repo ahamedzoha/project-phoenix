@@ -6,7 +6,9 @@ module.exports = {
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   siteUrl: 'https://azazahamed.com',
   generateRobotsTxt: true,
+  // Keep the Keystatic admin out of the sitemap and search indexes.
+  exclude: ['/keystatic', '/keystatic/*'],
   robotsTxtOptions: {
-    policies: [{ userAgent: '*', allow: '/' }],
+    policies: [{ userAgent: '*', allow: '/', disallow: ['/keystatic'] }],
   },
 }

@@ -15,6 +15,10 @@ the pipeline in [`lib/mdx/index.ts`](../../../lib/mdx/index.ts) (via
 `app/articles/[slug]/page.tsx`, and the index/home pages list articles through
 `getAllPostsMeta`.
 
+> **Easiest path:** run `pnpm dev` and open `/keystatic` — the Keystatic editor
+> writes a correctly-structured `content/<slug>.mdx` for you. The steps below are
+> for hand-authoring or scripting (and explain the conventions Keystatic follows).
+
 ## Steps
 
 1. **Create the file:** `content/<slug>.mdx`. The **filename is the slug** and the

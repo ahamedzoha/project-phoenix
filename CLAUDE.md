@@ -13,6 +13,7 @@ syntax-highlighted code blocks.
 - **Next.js 16** (App Router, React Server Components) · **React 19** · **TypeScript 6**
 - **Tailwind CSS v4** + `@tailwindcss/typography` (article prose) + `@tailwindcss/forms`
 - **MDX** via `next-mdx-remote/rsc` (`compileMDX`) with `remark-gfm` + `rehype-pretty-code` (Shiki)
+- **Keystatic** git-based CMS (`keystatic.config.ts`) for editing `content/*.mdx` at `/keystatic`
 - **next-themes** for class-based dark mode · **pnpm** (pinned via `packageManager`) · Node 22 (`.nvmrc`)
 - **Jest** (via `next/jest`) + Testing Library
 
@@ -70,5 +71,10 @@ CI (`.github/workflows/lint.yml`) runs typecheck, lint:strict, format:check, tes
 
 ## Adding content
 
-- **New article:** see `.claude/skills/write-article`.
+- **New article (rich editor):** `pnpm dev`, open `/keystatic`, and write in the
+  Keystatic editor — it commits `content/<slug>.mdx` directly (git-based, no DB).
+  Config: `keystatic.config.ts`; routes under `app/keystatic/` + `app/api/keystatic/`.
+  The admin renders chrome-free via `components/layout/SiteFrame.tsx`. Storage is
+  `local` (edit locally); switch to `github` mode in the config to edit from the
+  deployed site. You can still hand-write MDX — see `.claude/skills/write-article`.
 - **New page:** see `.claude/skills/new-page`.
