@@ -24,7 +24,7 @@ export default function ImageRow() {
           <div
             key={image.src}
             className={clsxm(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 shadow-lg sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
+              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl border border-zinc-200/60 bg-zinc-100 shadow-lg sm:w-72 sm:rounded-2xl dark:border-ink-700 dark:bg-ink-800',
               rotations[imageIndex % rotations.length],
             )}
           >
