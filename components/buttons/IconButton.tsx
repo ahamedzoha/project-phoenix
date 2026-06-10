@@ -4,18 +4,10 @@ import { ImSpinner2 } from 'react-icons/im'
 
 import clsxm from '@/lib/clsxm'
 
-const IconButtonVariant = [
-  'primary',
-  'outline',
-  'ghost',
-  'light',
-  'dark',
-] as const
-
 type IconButtonProps = {
   isLoading?: boolean
   isDarkBg?: boolean
-  variant?: (typeof IconButtonVariant)[number]
+  variant?: 'primary' | 'outline' | 'ghost' | 'light' | 'dark'
   icon?: IconType
   iconClassName?: string
 } & React.ComponentPropsWithRef<'button'>
@@ -32,7 +24,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       iconClassName,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const disabled = isLoading || buttonDisabled
 
@@ -44,7 +36,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         className={clsxm(
           'inline-flex items-center justify-center rounded font-medium',
           'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
-          'shadow-sm',
+          'shadow-xs',
           'transition-colors duration-75',
           'min-h-[28px] min-w-[28px] p-1 md:min-h-[34px] md:min-w-[34px] md:p-2',
           //#region  //*=========== Variants ===========
@@ -73,7 +65,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
             variant === 'light' && [
               'bg-white text-gray-700',
               'border border-gray-300',
-              'hover:bg-gray-100 hover:text-dark',
+              'hover:text-dark hover:bg-gray-100',
               'active:bg-white/80 disabled:bg-gray-200',
             ],
             variant === 'dark' && [
@@ -86,7 +78,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           'disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
-          className
+          className,
         )}
         {...rest}
       >
@@ -98,7 +90,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
                 'text-white': ['primary', 'dark'].includes(variant),
                 'text-black': ['light'].includes(variant),
                 'text-primary-500': ['outline', 'ghost'].includes(variant),
-              }
+              },
             )}
           >
             <ImSpinner2 className='animate-spin' />
@@ -107,7 +99,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         {Icon && <Icon className={clsxm(iconClassName)} />}
       </button>
     )
-  }
+  },
 )
 
 export default IconButton

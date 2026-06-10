@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const colors = require('tailwindcss/colors')
 const { fontFamily } = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
+    './content/**/*.{md,mdx}',
   ],
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
   darkMode: 'class', // or 'media' or 'class'
@@ -54,6 +55,13 @@ module.exports = {
     },
 
     extend: {
+      // `primary` is the site accent used by buttons/links (e.g.
+      // `ring-primary-500`). It was referenced everywhere but never defined,
+      // so those utilities silently did nothing — map it to teal.
+      colors: {
+        primary: colors.teal,
+      },
+
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
         mono: ['var(--font-roboto-mono)', ...fontFamily.mono],
@@ -313,7 +321,8 @@ module.exports = {
             marginBottom: theme('spacing.20'),
             borderTopWidth: '1px',
             borderColor: 'var(--tw-prose-hr)',
-            '@screen lg': {
+            // `@screen` was removed in Tailwind v4; lg = 1024px (see screens)
+            '@media (min-width: 1024px)': {
               marginLeft: `calc(${theme('spacing.12')} * -1)`,
               marginRight: `calc(${theme('spacing.12')} * -1)`,
             },

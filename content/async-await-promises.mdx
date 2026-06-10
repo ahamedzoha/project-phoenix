@@ -13,13 +13,12 @@ Promises are a built-in JavaScript object that represent an asynchronous operati
 
 Here is an example of how to use a promise in a Node.js application:
 
-```JavaScript
+```js
 const fs = require('fs').promises
 
 fs.readFile('file.txt')
-  .then(data => console.log(data))
-  .catch(err => console.error(err))
-
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err))
 ```
 
 In this example, the `fs.readFile()` function returns a promise that represents an asynchronous operation. The `then()` method is used to handle the fulfilled state of the promise, which means that the operation completed successfully. The `catch()` method is used to handle the rejected state of the promise, which means that an error occurred during the operation.
@@ -30,7 +29,7 @@ Async/await is a more recent addition to JavaScript that allows developers to wr
 
 Here is an example of how to use async/await in a Node.js application:
 
-```JavaScript
+```js
 const fs = require('fs').promises
 
 async function readFile() {
@@ -43,7 +42,6 @@ async function readFile() {
 }
 
 readFile()
-
 ```
 
 In this example, the `async` keyword is used to define a function that contains asynchronous operations. The `await` keyword is used to pause the execution of the function until the asynchronous operation completes. The `try...catch` statement is used to handle errors that may occur during the asynchronous operation.

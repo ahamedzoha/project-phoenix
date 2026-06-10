@@ -30,7 +30,7 @@ const AboutPage = () => {
         </div>
         <div className='lg:order-first lg:row-span-2'>
           <RoughNotationGroup show={true}>
-            <p className='text-balance text-sm font-semibold text-zinc-600 dark:text-zinc-400'>
+            <p className='text-sm font-semibold text-balance text-zinc-600 dark:text-zinc-400'>
               <RoughNotation
                 type='underline'
                 strokeWidth={2}
@@ -40,12 +40,9 @@ const AboutPage = () => {
                 Full-Stack Software Engineer
               </RoughNotation>
             </p>
-            <h1 className='text-4xl font-bold tracking-tight text-zinc-800  dark:text-zinc-100 sm:text-5xl'>
+            <h1 className='text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100'>
               I’m Zoha. I live in Dhaka, where I develop the{' '}
-              <span
-                className='dark:drop-shadow-teal-700 text-teal-500
-            dark:text-teal-400 dark:drop-shadow-2xl'
-              >
+              <span className='text-teal-500 dark:text-teal-400 dark:drop-shadow-2xl dark:drop-shadow-teal-700'>
                 {' '}
                 future.
               </span>

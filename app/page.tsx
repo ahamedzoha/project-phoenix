@@ -42,7 +42,7 @@ const HomePage = async () => {
         <div className='flex flex-col items-start gap-8 md:flex-row'>
           <div className='flex-1'>
             <RoughNotationGroup show={true}>
-              <p className='text-balance text-sm font-semibold text-zinc-600 dark:text-zinc-400'>
+              <p className='text-sm font-semibold text-balance text-zinc-600 dark:text-zinc-400'>
                 <RoughNotation
                   animationDuration={250}
                   type='underline'
@@ -53,7 +53,7 @@ const HomePage = async () => {
                   Full-Stack Software Engineer
                 </RoughNotation>
               </p>
-              <h1 className='mt-2 text-balance text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl'>
+              <h1 className='mt-2 text-4xl font-bold tracking-tight text-balance text-zinc-800 sm:text-5xl dark:text-zinc-100'>
                 Crafting Scalable Solutions with{' '}
                 <RoughNotation
                   animationDuration={175}

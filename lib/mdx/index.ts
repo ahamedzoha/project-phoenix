@@ -1,6 +1,23 @@
 import fs from 'fs'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import path from 'path'
+import rehypePrettyCode, {
+  type Options as RehypePrettyCodeOptions,
+} from 'rehype-pretty-code'
+import remarkGfm from 'remark-gfm'
+
+// Code blocks render on a dark panel in both light and dark site themes
+// (see the `prose` `--tw-prose-pre-bg` in tailwind.config.js), so a single
+// dark Shiki theme is used. Shiki emits inline token colors that override the
+// inherited prose text color; `keepBackground: false` keeps the prose panel.
+const prettyCodeOptions: RehypePrettyCodeOptions = {
+  theme: 'github-dark',
+  keepBackground: false,
+  // Only default fenced blocks to plaintext. Leaving `inline` unset means plain
+  // inline `code` is NOT wrapped/transformed, so it keeps the prose pill styling
+  // instead of becoming a full-width code block.
+  defaultLang: { block: 'plaintext' },
+}
 
 interface PostMeta {
   title: string
@@ -46,7 +63,13 @@ export const getPostBySlug = async (slug: string): Promise<PostData> => {
 
     const { frontmatter, content } = await compileMDX({
       source: fileContent,
-      options: { parseFrontmatter: true },
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+          rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
+        },
+      },
     })
 
     if (!frontmatter || !content) {
@@ -76,13 +99,15 @@ export const getPostBySlug = async (slug: string): Promise<PostData> => {
 
 // Function to get all posts metadata
 export const getAllPostsMeta = async (): Promise<PostMeta[]> => {
-  const files = fs.readdirSync(contentRootDirectory)
+  const files = fs
+    .readdirSync(contentRootDirectory)
+    .filter((file) => file.endsWith('.mdx'))
 
   const posts: PostMeta[] = await Promise.all(
     files.map(async (file) => {
       const { meta } = await getPostBySlug(file)
       return meta
-    })
+    }),
   )
 
   return posts

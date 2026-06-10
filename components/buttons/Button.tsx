@@ -4,14 +4,11 @@ import { ImSpinner2 } from 'react-icons/im'
 
 import clsxm from '@/lib/clsxm'
 
-const ButtonVariant = ['primary', 'outline', 'ghost', 'light', 'dark'] as const
-const ButtonSize = ['sm', 'base'] as const
-
 type ButtonProps = {
   isLoading?: boolean
   isDarkBg?: boolean
-  variant?: (typeof ButtonVariant)[number]
-  size?: (typeof ButtonSize)[number]
+  variant?: 'primary' | 'outline' | 'ghost' | 'light' | 'dark'
+  size?: 'sm' | 'base'
   leftIcon?: IconType
   rightIcon?: IconType
   leftIconClassName?: string
@@ -34,7 +31,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       rightIconClassName,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const disabled = isLoading || buttonDisabled
 
@@ -46,7 +43,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={clsxm(
           'inline-flex items-center rounded font-medium',
           'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
-          'shadow-sm',
+          'shadow-xs',
           'transition-colors duration-75',
           //#region  //*=========== Size ===========
           [
@@ -80,7 +77,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             variant === 'light' && [
               'bg-white text-gray-700',
               'border border-gray-300',
-              'hover:bg-gray-100 hover:text-dark',
+              'hover:text-dark hover:bg-gray-100',
               'active:bg-white/80 disabled:bg-gray-200',
             ],
             variant === 'dark' && [
@@ -93,7 +90,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           'disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
-          className
+          className,
         )}
         {...rest}
       >
@@ -105,7 +102,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 'text-white': ['primary', 'dark'].includes(variant),
                 'text-black': ['light'].includes(variant),
                 'text-primary-500': ['outline', 'ghost'].includes(variant),
-              }
+              },
             )}
           >
             <ImSpinner2 className='animate-spin' />
@@ -124,7 +121,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                   size === 'base' && 'md:text-md text-md',
                   size === 'sm' && 'md:text-md text-sm',
                 ],
-                leftIconClassName
+                leftIconClassName,
               )}
             />
           </div>
@@ -143,14 +140,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                   size === 'base' && 'text-md md:text-md',
                   size === 'sm' && 'md:text-md text-sm',
                 ],
-                rightIconClassName
+                rightIconClassName,
               )}
             />
           </div>
         )}
       </button>
     )
-  }
+  },
 )
 
 export default Button

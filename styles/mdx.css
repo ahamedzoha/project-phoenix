@@ -1,0 +1,52 @@
+/*
+ * Article code-block styling for rehype-pretty-code (Shiki).
+ *
+ * Token colors come from Shiki as inline styles (the `github-dark` theme),
+ * and the dark panel background comes from the Tailwind `prose` config
+ * (`--tw-prose-pre-bg`). This file only adds the bits Shiki/prose don't:
+ * the project mono font and the optional line/word-highlight treatments.
+ * Colors are hard-coded to their Tailwind values to stay independent of the
+ * theme() pipeline.
+ */
+
+[data-rehype-pretty-code-figure] pre,
+[data-rehype-pretty-code-figure] code {
+  font-family:
+    var(--font-roboto-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Code-block title: ```js title="example.js" */
+[data-rehype-pretty-code-title] {
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(39 39 42); /* zinc-800 */
+  padding: 0.5rem 1rem;
+  font-family: var(--font-roboto-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgb(228 228 231); /* zinc-200 */
+}
+
+/* Each line is a block so highlights span the full width.
+   Scoped to `pre code` so it can never affect inline code pills. */
+[data-rehype-pretty-code-figure] pre code {
+  display: grid;
+}
+
+[data-line] {
+  padding: 0 0.25rem;
+  border-left: 2px solid transparent;
+}
+
+/* Highlighted lines: ```js {1,3-4} */
+[data-highlighted-line] {
+  border-left-color: rgb(45 212 191); /* teal-400 */
+  background-color: rgb(45 212 191 / 0.1);
+}
+
+/* Highlighted words/chars: ```js /word/ */
+[data-highlighted-chars] {
+  border-radius: 0.25rem;
+  background-color: rgb(82 82 91 / 0.5); /* zinc-600/50 */
+  padding: 0.125rem 0.25rem;
+}

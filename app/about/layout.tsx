@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: 'About | Azaz Ahamed Zoha',
@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     title: "Azaz Ahamed's Website",
     statusBarStyle: 'black-translucent',
   },
+}
+
+export const viewport: Viewport = {
   colorScheme: 'dark light',
 }
 

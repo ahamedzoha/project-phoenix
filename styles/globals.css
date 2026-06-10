@@ -1,37 +1,8 @@
-@tailwind base;
-@tailwind components;
-@import './prism.css';
-@tailwind utilities;
+@import 'tailwindcss';
+@import './mdx.css';
 
-/* @layer base { */
-/* #region  /**======== Typography =========== */
-/* .h0 {
-    @apply font-sans text-3xl font-bold md:text-5xl;
-  }
+/* Use the existing JS Tailwind config (theme, typography/prose, plugins) */
+@config '../tailwind.config.js';
 
-  h1,
-  .h1 {
-    @apply font-sans text-2xl font-bold md:text-4xl;
-  }
-
-  h2,
-  .h2 {
-    @apply font-sans text-xl font-bold md:text-3xl;
-  }
-
-  h3,
-  .h3 {
-    @apply font-sans text-lg font-bold md:text-2xl;
-  }
-
-  h4,
-  .h4 {
-    @apply font-sans text-base font-bold md:text-lg;
-  }
-
-  body,
-  .p {
-    @apply font-sans text-sm md:text-base;
-  } */
-/* #endregion  /**======== Typography =========== */
-/* } */
+/* Class-based dark mode driven by next-themes (`attribute="class"`) */
+@custom-variant dark (&:where(.dark, .dark *));

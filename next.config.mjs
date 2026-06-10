@@ -1,27 +1,10 @@
-import rehypePrism from '@mapbox/rehype-prism'
-import nextMDX from '@next/mdx'
-import remarkGfm from 'remark-gfm'
-
-const withMDx = nextMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism],
-  },
-})
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    mdxRs: true,
-  },
-  eslint: {
-    dirs: ['app', 'components', 'pages', 'utils', 'content'],
-  },
-
   reactStrictMode: true,
-  swcMinify: true,
 
+  // Articles are compiled at request/build time via next-mdx-remote in
+  // lib/mdx (with remark-gfm + rehype-pretty-code), so no @next/mdx wiring
+  // is needed here. Linting runs via `pnpm lint` / CI, not the Next build.
   images: {
     remotePatterns: [
       {
@@ -37,4 +20,4 @@ const nextConfig = {
   },
 }
 
-export default withMDx(nextConfig)
+export default nextConfig
