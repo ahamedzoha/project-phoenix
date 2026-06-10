@@ -1,0 +1,15 @@
+# Coolify builds this app with Nixpacks, which pins `corepack@0.24.1`. That old
+# corepack can't launch pnpm 11 on Node 24 — it fails with
+# `ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING` while loading pnpm's entry point.
+# Override the install phase to install a current corepack first, so it can
+# honor `packageManager: pnpm@11` from package.json and run pnpm correctly.
+[phases.install]
+dependsOn = ["setup"]
+cmds = [
+  "npm install -g corepack@latest",
+  "corepack enable",
+  # --prod=false: the build needs devDependencies (tailwindcss, typescript,
+  # next-sitemap, ...) even when Coolify sets NODE_ENV/production in the env.
+  "pnpm install --frozen-lockfile --prod=false",
+]
+cacheDirectories = ["/root/.local/share/pnpm/store/v3"]
