@@ -9,14 +9,14 @@ import { Prose } from '@/components/layout/Prose'
 import Seo from '@/components/Seo' // Import Seo component
 
 interface ArticleParams {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 // Fetch post content based on the slug
 const getPageContent = async (slug: string) => {
   try {
     return await getPostBySlug(slug)
-  } catch (error) {
+  } catch {
     notFound()
   }
 }
@@ -24,25 +24,27 @@ const getPageContent = async (slug: string) => {
 // Generate static params for all posts
 export const generateStaticParams = async () => {
   const posts = await getAllPostsMeta()
-  return posts.map((post) => ({ params: { slug: post.slug } }))
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 // Set up dynamic metadata for individual posts
 export const generateMetadata = async ({ params }: ArticleParams) => {
   try {
-    const { meta } = await getPageContent(params.slug)
+    const { slug } = await params
+    const { meta } = await getPageContent(slug)
     return {
       title: meta.title,
       description: meta.description,
     }
-  } catch (error) {
+  } catch {
     return { title: 'Not Found' }
   }
 }
 
 // Page component for displaying individual articles
 const ArticlePage = async ({ params }: ArticleParams) => {
-  const article = await getPageContent(params.slug)
+  const { slug } = await params
+  const article = await getPageContent(slug)
   if (!article) return notFound()
 
   const { meta, content } = article
@@ -63,7 +65,7 @@ const ArticlePage = async ({ params }: ArticleParams) => {
             <BackButton />
             <article>
               <header className='flex flex-col'>
-                <h1 className='mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl'>
+                <h1 className='mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100'>
                   {meta.title}
                 </h1>
                 <time

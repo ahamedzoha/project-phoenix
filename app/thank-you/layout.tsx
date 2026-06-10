@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: 'Thank you!',
@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     title: "Signed up for Azaz Ahamed's newsletter!",
     statusBarStyle: 'black-translucent',
   },
+}
+
+export const viewport: Viewport = {
   colorScheme: 'dark light',
 }
 

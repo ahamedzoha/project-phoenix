@@ -1,0 +1,14 @@
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+
+# Allow these packages to run install/build scripts (blocked by default in pnpm 10+)
+onlyBuiltDependencies:
+  - sharp
+  - unrs-resolver
+
+# react-rough-notation still declares older React peers; it works fine on React 19
+peerDependencyRules:
+  allowedVersions:
+    react: '19'
+    react-dom: '19'

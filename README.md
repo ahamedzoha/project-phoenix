@@ -1,35 +1,48 @@
-# Website using Next.js + Tailwind CSS + TypeScript
-
 <div align="center">
   <h2>🔋 Azaz Ahamed's Website</h2>
-  <p>Next.js + Tailwind CSS + TypeScript project useful development features.</p>
+  <p>Personal site &amp; blog built with Next.js, React, Tailwind CSS, and TypeScript.</p>
   <p>Made by <a href="https://azazahamed.com">Azaz Ahamed Zoha</a></p>
-
 </div>
 
-## Features
+## Stack
 
-This repository is 🔋 battery packed with:
+- ⚡️ **Next.js 16** (App Router) + ⚛️ **React 19**
+- ✨ **TypeScript 6**
+- 💨 **Tailwind CSS v4** with the typography plugin for article prose
+- 📝 **MDX** articles rendered via `next-mdx-remote`, with **Shiki** (`rehype-pretty-code`)
+  syntax highlighting
+- 🌗 Dark mode via **next-themes**
+- 🃏 **Jest** + Testing Library
+- 📏 **ESLint** (flat config) + 💖 **Prettier** (with Tailwind class sorting)
+- 🐶 **Husky** + lint-staged + 🤖 **commitlint** (Conventional Commits)
+- 🗺 Automatic `sitemap.xml` via next-sitemap
+- 👷 **GitHub Actions** for lint, typecheck, format, test, and build
 
-- ⚡️ Next.js 13
-- ⚛️ React 18
-- ✨ TypeScript
-- 💨 Tailwind CSS 3 — Configured with CSS Variables to extend the **primary** color
-- 💎 Pre-built Components — Components that will **automatically adapt** with your brand color, [check here for the demo](https://tsnext-tw.thcl.dev/components)
-- 🃏 Jest — Configured for unit testing
-- 📈 Absolute Import and Path Alias — Import components using `@/` prefix
-- 📏 ESLint — Find and fix problems in your code, also will **auto sort** your imports
-- 💖 Prettier — Format your code consistently
-- 🐶 Husky & Lint Staged — Run scripts on your staged files before they are committed
-- 🤖 Conventional Commit Lint — Make sure you & your teammates follow conventional commit
-- ⏰ Release Please — Generate your changelog by activating the `release-please` workflow
-- 👷 Github Actions — Lint your code on PR
-- 🚘 Automatic Branch and Issue Autolink — Branch will be automatically created on issue **assign**, and auto linked on PR
-- 🔥 Snippets — A collection of useful snippets
-- 👀 Default Open Graph — Awesome open graph generated using [og](https://github.com/theodorusclarence/og), fork it and deploy!
-- 🗺 Site Map — Automatically generate sitemap.xml
-- 📦 Expansion Pack — Easily install common libraries, additional components, and configs
+## Getting started
 
-### Commit Message Convention
+This project uses **pnpm** (Node 22 — see `.nvmrc`).
 
-This project is using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/), it is mandatory to use it to commit changes.
+```bash
+pnpm install
+pnpm dev          # http://localhost:3000
+```
+
+| Command            | Description                      |
+| ------------------ | -------------------------------- |
+| `pnpm dev`         | Start the dev server             |
+| `pnpm build`       | Production build (+ sitemap)     |
+| `pnpm typecheck`   | Type-check with `tsc`            |
+| `pnpm lint:strict` | Lint with zero-warning tolerance |
+| `pnpm test`        | Run Jest tests                   |
+| `pnpm format`      | Format with Prettier             |
+
+## Writing articles
+
+Add an `.mdx` file under [`content/`](content/) with frontmatter (`title`, `author`,
+`date`, `description`). The filename becomes the slug. Use **lowercase** code-fence
+languages (` ```js `) so Shiki highlights them. See [`CLAUDE.md`](CLAUDE.md) and
+`.claude/skills/write-article` for details.
+
+## Commit convention
+
+Uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), enforced by commitlint.
