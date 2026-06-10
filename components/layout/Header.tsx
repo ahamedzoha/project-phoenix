@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useTheme } from 'next-themes'
 import { AnchorHTMLAttributes } from 'react'
 import { Fragment, useEffect, useRef } from 'react'
 
@@ -91,9 +92,9 @@ function MobileNavItem({
 function MobileNavigation(props: { className?: string }) {
   return (
     <Popover {...props}>
-      <Popover.Button className='group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20'>
-        Menu
-        <ChevronDownIcon className='ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400' />
+      <Popover.Button className='group flex items-center rounded-full border border-zinc-200 bg-white/80 px-4 py-2 font-mono text-[13px] font-medium text-zinc-700 shadow-lg shadow-zinc-800/5 backdrop-blur dark:border-ink-700 dark:bg-ink-900/80 dark:text-zinc-300'>
+        menu
+        <ChevronDownIcon className='ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-accent-400' />
       </Popover.Button>
       <Transition.Root>
         <Transition.Child
@@ -105,7 +106,7 @@ function MobileNavigation(props: { className?: string }) {
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <Popover.Overlay className='fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-xs dark:bg-black/80' />
+          <Popover.Overlay className='fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-xs dark:bg-ink-950/80' />
         </Transition.Child>
         <Transition.Child
           as={Fragment}
@@ -118,18 +119,18 @@ function MobileNavigation(props: { className?: string }) {
         >
           <Popover.Panel
             focus
-            className='fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800'
+            className='fixed inset-x-4 top-8 z-50 origin-top rounded-2xl border border-zinc-200 bg-white p-8 dark:border-ink-700 dark:bg-ink-900'
           >
             <div className='flex flex-row-reverse items-center justify-between'>
               <Popover.Button aria-label='Close menu' className='-m-1 p-1'>
                 <CloseIcon className='h-6 w-6 text-zinc-500 dark:text-zinc-400' />
               </Popover.Button>
-              <h2 className='text-sm font-medium text-zinc-600 dark:text-zinc-400'>
+              <h2 className='font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-500'>
                 Navigation
               </h2>
             </div>
             <nav className='mt-6'>
-              <ul className='-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300'>
+              <ul className='-my-2 divide-y divide-zinc-100 font-mono text-base text-zinc-800 dark:divide-ink-700 dark:text-zinc-300'>
                 <MobileNavItem href='/about'>About</MobileNavItem>
                 <MobileNavItem href='/articles'>Articles</MobileNavItem>
                 <MobileNavItem href='/projects'>Projects</MobileNavItem>
@@ -160,13 +161,13 @@ function NavItem({
         className={clsx(
           'relative block px-3 py-2 transition',
           isActive
-            ? 'text-teal-500 dark:text-teal-400'
-            : 'hover:text-teal-500 dark:hover:text-teal-400',
+            ? 'text-accent-500 dark:text-accent-400'
+            : 'hover:text-accent-500 dark:hover:text-accent-400',
         )}
       >
         {children}
         {isActive && (
-          <span className='absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0' />
+          <span className='absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-accent-400/0 via-accent-400/60 to-accent-400/0' />
         )}
       </Link>
     </li>
@@ -176,7 +177,7 @@ function NavItem({
 function DesktopNavigation(props: { className?: string }) {
   return (
     <nav {...props}>
-      <ul className='flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10'>
+      <ul className='flex rounded-full border border-zinc-200 bg-white/80 px-2 font-mono text-[13px] font-medium text-zinc-700 shadow-lg shadow-zinc-800/5 backdrop-blur dark:border-ink-700 dark:bg-ink-900/80 dark:text-zinc-300'>
         <NavItem href='/about'>About</NavItem>
         <NavItem href='/articles'>Articles</NavItem>
         <NavItem href='/projects'>Projects</NavItem>
@@ -188,36 +189,19 @@ function DesktopNavigation(props: { className?: string }) {
 }
 
 function ModeToggle() {
-  function disableTransitionsTemporarily() {
-    document.documentElement.classList.add('[&_*]:!transition-none')
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
-    }, 0)
-  }
-
-  function toggleMode() {
-    disableTransitionsTemporarily()
-
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    const isSystemDarkMode = darkModeMediaQuery.matches
-    const isDarkMode = document.documentElement.classList.toggle('dark')
-
-    if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode
-    } else {
-      window.localStorage.isDarkMode = isDarkMode
-    }
-  }
+  // Drive theme through next-themes (the single source of truth) instead of
+  // hand-rolling classList/localStorage, which previously fought the provider.
+  const { resolvedTheme, setTheme } = useTheme()
 
   return (
     <button
       type='button'
-      aria-label='Toggle dark mode'
-      className='group rounded-full bg-white/90 px-3 py-2 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20'
-      onClick={toggleMode}
+      aria-label='Toggle theme'
+      className='group rounded-full border border-zinc-200 bg-white/80 px-3 py-2 shadow-lg shadow-zinc-800/5 backdrop-blur transition hover:border-accent-400/50 dark:border-ink-700 dark:bg-ink-900/80 dark:hover:border-accent-400/40'
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
-      <SunIcon className='h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600' />
-      <MoonIcon className='hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400' />
+      <SunIcon className='h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden' />
+      <MoonIcon className='hidden h-6 w-6 fill-ink-700 stroke-zinc-400 transition group-hover:stroke-accent-400 dark:block' />
     </button>
   )
 }
@@ -236,7 +220,7 @@ function AvatarContainer({
     <div
       className={clsx(
         className,
-        'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10',
+        'h-10 w-10 rounded-full border border-zinc-200 bg-white/80 p-0.5 shadow-lg shadow-zinc-800/5 backdrop-blur dark:border-ink-700 dark:bg-ink-900/80',
       )}
       {...props}
     />

@@ -24,25 +24,25 @@ const AboutPage = () => {
               src={portraitImage}
               alt=''
               sizes='(min-width: 1024px) 32rem, 20rem'
-              className='aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover shadow-2xl dark:bg-zinc-800 dark:shadow-indigo-900'
+              className='aspect-square rotate-3 rounded-2xl border border-zinc-200/60 bg-zinc-100 object-cover shadow-2xl dark:border-ink-700 dark:bg-ink-800 dark:shadow-accent-500/10'
             />
           </div>
         </div>
         <div className='lg:order-first lg:row-span-2'>
           <RoughNotationGroup show={true}>
-            <p className='text-sm font-semibold text-balance text-zinc-600 dark:text-zinc-400'>
+            <p className='font-mono text-[13px] tracking-wide text-zinc-500 dark:text-zinc-400'>
               <RoughNotation
                 type='underline'
                 strokeWidth={2}
-                color='#34D399'
+                color='#38E1C6'
                 order='1'
               >
                 Full-Stack Software Engineer
               </RoughNotation>
             </p>
-            <h1 className='text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100'>
+            <h1 className='mt-3 font-mono text-4xl leading-[1.1] font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50'>
               I’m Zoha. I live in Dhaka, where I develop the{' '}
-              <span className='text-teal-500 dark:text-teal-400 dark:drop-shadow-2xl dark:drop-shadow-teal-700'>
+              <span className='text-accent-500 dark:text-accent-400'>
                 {' '}
                 future.
               </span>
@@ -50,32 +50,32 @@ const AboutPage = () => {
             <div className='mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400'>
               <p>
                 With over 5 years of experience, I specialize in{' '}
-                <RoughNotation type='underline' color='#34D399' order='3'>
+                <RoughNotation type='underline' color='#38E1C6' order='3'>
                   JavaScript
                 </RoughNotation>{' '}
                 and{' '}
-                <RoughNotation type='underline' color='#F87171' order='4'>
+                <RoughNotation type='underline' color='#38E1C6' order='4'>
                   TypeScript
                 </RoughNotation>
                 , focusing on{' '}
-                <RoughNotation type='circle' color='#FBBF24' order='5'>
+                <RoughNotation type='circle' color='#38E1C6' order='5'>
                   React ecosystems
                 </RoughNotation>
                 . I've led high-value projects, optimized performance, and
                 mentored teams. My expertise extends to building scalable
                 applications and implementing efficient{' '}
-                <RoughNotation type='box' color='#A78BFA' order='6'>
+                <RoughNotation type='box' color='#38E1C6' order='6'>
                   CI/CD pipelines
                 </RoughNotation>
                 .
               </p>
               <p>
                 Beyond coding, I'm passionate about{' '}
-                <RoughNotation type='underline' color='#60A5FA' order='7'>
+                <RoughNotation type='underline' color='#38E1C6' order='7'>
                   system design
                 </RoughNotation>{' '}
                 and{' '}
-                <RoughNotation type='underline' color='#34D399' order='8'>
+                <RoughNotation type='underline' color='#38E1C6' order='8'>
                   software architectures
                 </RoughNotation>
                 . I'm currently exploring these concepts through the lens of
@@ -88,7 +88,7 @@ const AboutPage = () => {
                 <RoughNotation
                   brackets='left'
                   type='bracket'
-                  color='#F87171'
+                  color='#38E1C6'
                   order='2'
                   strokeWidth={2}
                 >
@@ -132,7 +132,7 @@ const AboutPage = () => {
             <SocialLink
               href='mailto:ahamed.zoha@gmail.com'
               icon={MailIcon}
-              className='mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40'
+              className='mt-8 border-t border-zinc-100 pt-8 dark:border-ink-700'
             >
               ahamed.zoha@gmail.com
             </SocialLink>
@@ -175,9 +175,9 @@ const SocialLink: FC<SocialLinkProps> = ({
     <li className={clsxm(className, 'flex')}>
       <Link
         href={href}
-        className='group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500'
+        className='group flex text-sm font-medium text-zinc-800 transition hover:text-accent-500 dark:text-zinc-200 dark:hover:text-accent-400'
       >
-        <Icon className='h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500' />
+        <Icon className='h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-accent-500 dark:group-hover:fill-accent-400' />
         <span className='ml-4'>{children}</span>
       </Link>
     </li>

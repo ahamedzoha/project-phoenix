@@ -55,16 +55,30 @@ module.exports = {
     },
 
     extend: {
-      // `primary` is the site accent used by buttons/links (e.g.
-      // `ring-primary-500`). It was referenced everywhere but never defined,
-      // so those utilities silently did nothing — map it to teal.
+      // `primary` is the legacy button/link accent (e.g. `ring-primary-500`).
+      // `accent` is the Systems/Terminal signal color (electric cyan-teal).
+      // `ink` is the deep-slate dark surface ramp.
       colors: {
         primary: colors.teal,
+        accent: {
+          300: '#5EEAD4',
+          400: '#38E1C6',
+          500: '#16C7A8',
+          600: '#0E9E86',
+          DEFAULT: '#38E1C6',
+        },
+        ink: {
+          950: '#0B0E14', // page background (deepest)
+          900: '#0F131B', // frame / surface
+          800: '#161C26', // raised cards
+          700: '#232B38', // hairline borders
+          600: '#2E3744', // hover borders
+        },
       },
 
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
-        mono: ['var(--font-roboto-mono)', ...fontFamily.mono],
+        mono: ['var(--font-mono)', ...fontFamily.mono],
       },
 
       keyframes: {
@@ -92,11 +106,16 @@ module.exports = {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        blink: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0 },
+        },
       },
       animation: {
         flicker: 'flicker 3s linear infinite',
         shimmer: 'shimmer 1.3s linear infinite',
         fadeIn: 'fadeIn 1s ease-in-out',
+        blink: 'blink 1.1s steps(1) infinite',
       },
     },
 
