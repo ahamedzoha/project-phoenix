@@ -90,10 +90,10 @@ const HomePage = async () => {
               <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
               <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
               <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
-              <span className='ml-2 font-mono text-[11px] text-zinc-400 dark:text-zinc-500'>
+              <span className='ml-2 font-mono text-[11px] whitespace-nowrap text-zinc-400 dark:text-zinc-500'>
                 request-pipeline.tsx
               </span>
-              <span className='ml-auto font-mono text-[10px] text-zinc-400 dark:text-zinc-500'>
+              <span className='ml-auto hidden font-mono text-[10px] whitespace-nowrap text-zinc-400 sm:inline dark:text-zinc-500'>
                 interactive — try the controls
               </span>
             </div>

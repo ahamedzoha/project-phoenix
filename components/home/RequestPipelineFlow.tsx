@@ -126,13 +126,13 @@ function CacheNode({ data }: NodeProps<Node<ControlData>>) {
         className='flex items-center gap-2 font-mono text-xs text-zinc-700 dark:text-zinc-300'
       >
         <span
-          className={`relative h-4 w-7 rounded-full transition-colors ${
+          className={`relative h-4 w-8 shrink-0 rounded-full transition-colors ${
             state.cache ? 'bg-accent-500' : 'bg-zinc-300 dark:bg-ink-600'
           }`}
         >
           <span
-            className={`absolute top-0.5 h-3 w-3 rounded-full bg-white transition-transform dark:bg-ink-950 ${
-              state.cache ? 'translate-x-3.5' : 'translate-x-0.5'
+            className={`absolute top-0.5 left-0.5 h-3 w-3 rounded-full bg-white transition-transform dark:bg-ink-950 ${
+              state.cache ? 'translate-x-4' : 'translate-x-0'
             }`}
           />
         </span>
@@ -255,7 +255,7 @@ const initialNodes: Node<ControlData>[] = [
   {
     id: 'out',
     type: 'waterfall',
-    position: { x: 320, y: 44 },
+    position: { x: 292, y: 44 },
     data: defaultData,
   },
 ]
@@ -283,14 +283,14 @@ export default function RequestPipelineFlow() {
   const defaultEdges = useMemo(() => edges, [])
 
   return (
-    <div className='rp-flow h-[380px] w-full sm:h-[400px]'>
+    <div className='rp-flow h-[340px] w-full sm:h-[360px]'>
       <ReactFlow
         nodes={nodes}
         edges={defaultEdges}
         nodeTypes={nodeTypes}
         onNodesChange={onNodesChange}
         fitView
-        fitViewOptions={{ padding: 0.08 }}
+        fitViewOptions={{ padding: 0.04 }}
         nodesDraggable
         nodesConnectable={false}
         elementsSelectable={false}
