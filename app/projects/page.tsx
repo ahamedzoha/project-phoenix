@@ -5,6 +5,36 @@ import SimpleLayout from '@/components/layout/SimpleLayout'
 
 const projects = [
   {
+    name: 'DinoTable',
+    description:
+      'Restaurant discovery & real-time reservations for Bangladesh — Bangla-first, SMS-native, Ramadan-aware. Three React surfaces (Next.js 16 diner app, tablet back-office, admin console) on a modular-monolith NestJS backend. Code private — happy to walk through it.',
+    link: {
+      href: 'https://github.com/ahamedzoha',
+      label: 'code private',
+    },
+    logo: '/logos/planetaria.svg',
+  },
+  {
+    name: 'Pulse',
+    description:
+      'AI team-intelligence platform: answers token-stream into a React UI over SSE from a RAG pipeline (PostgreSQL/pgvector HNSW), with a hybrid two-stage sentiment engine and Entra ID SSO. Next.js 16 / React 19 + NestJS monorepo.',
+    link: {
+      href: 'https://github.com/ahamedzoha/pulse',
+      label: 'github.com',
+    },
+    logo: '/logos/cosmos.svg',
+  },
+  {
+    name: 'Tabs vs Spaces',
+    description:
+      'Distributed real-time voting pipeline: live tallies over SSE with auto-reconnect, RabbitMQ-decoupled ingestion, batched multi-row upserts with backpressure, and a CQRS split across partitioned PostgreSQL + Redis.',
+    link: {
+      href: 'https://github.com/ahamedzoha/tabs-vs-spaces',
+      label: 'github.com',
+    },
+    logo: '/logos/helio-stream.svg',
+  },
+  {
     name: 'Dexter',
     description:
       "A comprehensive internal admin dashboard with Role-Based-Access-Control for BKash's campaign and fleet management.",
