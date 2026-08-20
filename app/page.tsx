@@ -1,9 +1,8 @@
-import Image from 'next/image'
-
 import { getAllPostsMeta } from '@/lib/mdx'
 
 import Article from '@/components/home/Article'
 import Newsletter from '@/components/home/Newsletter'
+import RequestPipelineFlow from '@/components/home/RequestPipelineFlow'
 import Resume from '@/components/home/Resume'
 import ImageRow from '@/components/ImageRow'
 import { Container } from '@/components/layout/Container'
@@ -14,9 +13,6 @@ import {
   TwitterIcon,
 } from '@/components/Social/SocialIcons'
 import SocialLink from '@/components/Social/SocialLink'
-
-import architectureOnDark from '~/images/architecture-on-dark.svg'
-import architectureOnLight from '~/images/architecture-on-light.svg'
 
 const STACK = ['react', 'next.js', 'typescript', 'node', 'postgres', 'docker']
 
@@ -88,29 +84,21 @@ const HomePage = async () => {
             </div>
           </div>
 
-          {/* Signature: the architecture diagram, framed as a terminal window */}
+          {/* Signature: the request pipeline as a live node graph */}
           <div className='animate-fadeIn rounded-xl border border-zinc-200 bg-white/50 p-3 shadow-sm backdrop-blur-sm sm:p-4 dark:border-ink-700 dark:bg-ink-900/50'>
             <div className='mb-3 flex items-center gap-1.5 px-1'>
               <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
               <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
               <span className='h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-ink-600' />
-              <span className='ml-2 font-mono text-[11px] text-zinc-400 dark:text-zinc-500'>
-                architecture.svg
+              <span className='ml-2 font-mono text-[11px] whitespace-nowrap text-zinc-400 dark:text-zinc-500'>
+                request-pipeline.tsx
+              </span>
+              <span className='ml-auto hidden font-mono text-[10px] whitespace-nowrap text-zinc-400 sm:inline dark:text-zinc-500'>
+                interactive — try the controls
               </span>
             </div>
-            <div className='flex items-center justify-center rounded-lg bg-zinc-50/60 p-4 dark:bg-ink-950/40'>
-              <Image
-                src={architectureOnLight}
-                alt='System architecture diagram'
-                height={320}
-                className='block dark:hidden'
-              />
-              <Image
-                src={architectureOnDark}
-                alt='System architecture diagram'
-                height={320}
-                className='hidden dark:block'
-              />
+            <div className='rounded-lg bg-zinc-50/60 dark:bg-ink-950/40'>
+              <RequestPipelineFlow />
             </div>
           </div>
         </div>
