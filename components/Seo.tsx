@@ -5,11 +5,12 @@ import { FC } from 'react'
  * Can be overridden by passing props to the Seo component.
  */
 const defaultMeta = {
-  title: 'Full-Stack Software Engineer | React & Next.js Expert | Azaz Ahamed',
+  title:
+    'Senior Frontend Engineer (Full-Stack) | React & Next.js | Azaz Ahamed',
   siteName:
-    'Azaz Ahamed | Full-Stack Software Engineer | React & Next.js Specialist',
+    'Azaz Ahamed | Senior Frontend Engineer (Full-Stack) | React & Next.js',
   description:
-    'Azaz Ahamed, a full-stack software engineer with over 5 years of experience in JavaScript and TypeScript. Specializing in React, Next.js, and scalable applications. Offering reliable, high-quality services. Get in touch today!',
+    'Azaz Ahamed — senior frontend engineer with 6+ years across the JavaScript/TypeScript ecosystem. Deep React/Next.js architecture, performance, and design systems, with NestJS/PostgreSQL and applied-AI (RAG) depth to ship end to end.',
   url: 'https://azazahamed.com',
   type: 'website',
   robots: 'follow, index',

@@ -37,7 +37,7 @@ const AboutPage = () => {
                 color='#38E1C6'
                 order='1'
               >
-                Full-Stack Software Engineer
+                Senior Frontend Engineer (Full-Stack)
               </RoughNotation>
             </p>
             <h1 className='mt-3 font-mono text-4xl leading-[1.1] font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50'>
@@ -49,7 +49,7 @@ const AboutPage = () => {
             </h1>
             <div className='mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400'>
               <p>
-                With over 5 years of experience, I specialize in{' '}
+                With 6+ years of experience, I specialize in{' '}
                 <RoughNotation type='underline' color='#38E1C6' order='3'>
                   JavaScript
                 </RoughNotation>{' '}
@@ -61,9 +61,9 @@ const AboutPage = () => {
                 <RoughNotation type='circle' color='#38E1C6' order='5'>
                   React ecosystems
                 </RoughNotation>
-                . I've led high-value projects, optimized performance, and
-                mentored teams. My expertise extends to building scalable
-                applications and implementing efficient{' '}
+                . I've led frontend teams, shipped design systems, optimized
+                performance, and deliberately deepened backend and applied-AI
+                skills to own features end to end — including efficient{' '}
                 <RoughNotation type='box' color='#38E1C6' order='6'>
                   CI/CD pipelines
                 </RoughNotation>
@@ -92,18 +92,16 @@ const AboutPage = () => {
                   order='2'
                   strokeWidth={2}
                 >
-                  🏗️ I am currently working on an exciting project that involves
-                  managing Dhaka Stock Exchange portfolios. This project
-                  utilizes cutting-edge technologies like Typescript, Google
-                  Cloud Functions, Pub/Sub, Scheduler Firestore, and NextJS to
-                  deliver a robust and efficient platform. As part of this
-                  project, I am recording and storing near real-time stock data,
-                  which can be leveraged in the future for AI-based trading
-                  bots. This is an excellent opportunity for me to explore my
-                  passion for both software development and finance. I'm excited
-                  to use my skills and knowledge to build a platform that can
-                  help individuals make smarter investment decisions. Stay tuned
-                  for updates on this exciting project!
+                  🏗️ Right now I'm building DinoTable — restaurant discovery and
+                  real-time reservations for the Bangladesh market, with three
+                  React surfaces (a Next.js 16 / React 19 diner app, a
+                  tablet-first restaurant back-office, and a platform-admin
+                  console) on a modular-monolith NestJS backend. Before that I
+                  shipped Pulse, an AI team-intelligence platform where answers
+                  token-stream into a React UI over Server-Sent Events from a
+                  RAG pipeline on PostgreSQL/pgvector. Both are built the way I
+                  like to work: user-visible outcomes first, systems depth
+                  underneath.
                 </RoughNotation>
               </p>
             </div>
