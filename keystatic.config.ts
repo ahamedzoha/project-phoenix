@@ -1,12 +1,17 @@
 import { collection, config, fields } from '@keystatic/core'
 
-// GitHub-backed editing (write from the deployed site) turns on automatically
-// once the GitHub App env vars are present; otherwise it falls back to local
-// editing (your working tree). This keeps `pnpm build` working before the App
-// exists. GitHub mode needs all of (Keystatic guides you at /keystatic):
+// Local editing in dev (edit files directly — no GitHub login), GitHub-backed
+// editing in production (write from the deployed site, commits to the repo).
+// GitHub mode turns on only when BOTH production AND the App env vars are set,
+// so `pnpm dev` never does an OAuth round-trip and `pnpm build` still works
+// before the App exists. GitHub mode needs all of:
 //   KEYSTATIC_GITHUB_CLIENT_ID, KEYSTATIC_GITHUB_CLIENT_SECRET,
 //   KEYSTATIC_SECRET, NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG
-const storage = process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG
+const useGitHubStorage =
+  process.env.NODE_ENV === 'production' &&
+  Boolean(process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG)
+
+const storage = useGitHubStorage
   ? ({ kind: 'github', repo: 'ahamedzoha/project-phoenix' } as const)
   : ({ kind: 'local' } as const)
 

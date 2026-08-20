@@ -18,7 +18,7 @@ import SocialLink from '@/components/Social/SocialLink'
 import architectureOnDark from '~/images/architecture-on-dark.svg'
 import architectureOnLight from '~/images/architecture-on-light.svg'
 
-const STACK = ['node', 'typescript', 'react', 'next.js', 'postgres', 'docker']
+const STACK = ['react', 'next.js', 'typescript', 'node', 'postgres', 'docker']
 
 const HomePage = async () => {
   // Get the latest 3 articles
@@ -43,20 +43,21 @@ const HomePage = async () => {
           <div className='max-w-xl'>
             <p className='font-mono text-[13px] tracking-wide text-accent-500 dark:text-accent-400'>
               <span className='text-zinc-400 dark:text-zinc-600'>{'// '}</span>
-              full-stack · systems engineer
+              senior frontend engineer · full-stack
             </p>
             <h1 className='mt-5 font-mono text-4xl leading-[1.1] font-bold tracking-tight text-balance text-zinc-900 sm:text-5xl dark:text-zinc-50'>
-              I build systems that scale
+              From pixel to database
               <span
                 aria-hidden='true'
                 className='ml-1.5 inline-block h-[0.9em] w-[0.5ch] translate-y-[0.08em] animate-blink bg-accent-400 motion-reduce:animate-none'
               />
             </h1>
             <p className='mt-6 text-base leading-7 text-zinc-600 dark:text-zinc-400'>
-              I&apos;m Azaz Ahamed — a full-stack engineer who designs resilient
-              backend services and the React/Next.js interfaces that sit on top
-              of them. I write about the Node.js event loop, async patterns, and
-              shipping software that holds up in production.
+              I&apos;m Azaz Ahamed — a senior frontend engineer (6+ years) who
+              owns React/Next.js architecture, performance, and design systems —
+              and the NestJS/PostgreSQL services behind them. I write about
+              React, the Node.js event loop, and shipping software that holds up
+              in production.
             </p>
             <ul className='mt-7 flex flex-wrap gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400'>
               {STACK.map((tech) => (

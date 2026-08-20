@@ -4,7 +4,6 @@ import Button from '@/components/buttons/NewButton'
 
 import cisLogo from '~/logos/cisLogo.svg'
 import imLogo from '~/logos/imLogo.svg'
-import iubLogo from '~/logos/iubLogo.svg'
 import robendevsLogo from '~/logos/robenDevsLogo.bmp'
 import upworkLogo from '~/logos/upworkLogo.svg'
 
@@ -20,11 +19,19 @@ export default function Resume() {
   const resume: Role[] = [
     {
       company: 'RobenDevs',
+      title: 'Software Engineer III',
+      logo: robendevsLogo,
+      start: 2025,
+      end: 2026,
+      present: true,
+    },
+    {
+      company: 'RobenDevs',
       title: 'Software Engineer II',
       logo: robendevsLogo,
       start: 2023,
-      end: 2024,
-      present: true,
+      end: 2025,
+      present: false,
     },
     {
       company: 'Intelligent Machines',
@@ -40,13 +47,6 @@ export default function Resume() {
       logo: upworkLogo,
       start: 2018,
       end: 2020,
-    },
-    {
-      company: 'Independent University, Bangladesh',
-      title: 'Research Assistant',
-      logo: iubLogo,
-      start: 2016,
-      end: 2018,
     },
     {
       company: 'Canadian International School, Bangladesh',
